@@ -59,29 +59,24 @@ a.hiddenanchor{
 		padding-bottom: 30px;
 	}
 /** For the moment only webkit supports the background-clip:text; */
-#wrapper h1{
-    background: -webkit-repeating-linear-gradient(-45deg, 
-	rgb(18, 83, 93) , 
-	rgb(18, 83, 93) 20px, 
-	rgb(64, 111, 118) 20px, 
-	rgb(64, 111, 118) 40px, 
-	rgb(18, 83, 93) 40px);
-	-webkit-text-fill-color: transparent;
-	-webkit-background-clip: text;
-}
-#wrapper h1:after{
-	content: ' ';
-	display: block;
-	width: 100%;
-	height: 2px;
-	margin-top: 10px;
-	background: -moz-linear-gradient(left, rgba(147,184,189,0) 0%, rgba(147,184,189,0.8) 20%, rgba(147,184,189,1) 53%, rgba(147,184,189,0.8) 79%, rgba(147,184,189,0) 100%); 
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(147,184,189,0)), color-stop(20%,rgba(147,184,189,0.8)), color-stop(53%,rgba(147,184,189,1)), color-stop(79%,rgba(147,184,189,0.8)), color-stop(100%,rgba(147,184,189,0))); 
-	background: -webkit-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
-	background: -o-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
-	background: -ms-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
-	background: linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
-}
+	#wrapper h1 {
+		background: -webkit-repeating-linear-gradient(-45deg, rgb(251,171,69), rgb(255, 188, 102) 20px, rgb(255, 183, 92) 20px, rgb(255, 188, 102) 40px, rgb(251,171,69) 40px);
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text;
+	}
+	#wrapper h1:after {
+		content: ' ';
+		display: block;
+		width: 100%;
+		height: 2px;
+		margin-top: 10px;
+		background: -moz-linear-gradient(left, rgba(251,171,69,0) 0%, rgba(251,171,69,0.8) 20%, rgba(251,171,69,1) 53%, rgba(251,171,69,0.8) 79%, rgba(251,171,69,0) 100%);
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(251,171,69,0)), color-stop(20%,rgba(251,171,69,0.8)), color-stop(53%,rgba(251,171,69,1)), color-stop(79%,rgba(251,171,69,0.8)), color-stop(100%,rgba(251,171,69,0)));
+		background: -webkit-linear-gradient(left, rgba(251,171,69,0) 0%,rgba(251,171,69,0.8) 20%,rgba(251,171,69,1) 53%,rgba(251,171,69,0.8) 79%,rgba(251,171,69,0) 100%);
+		background: -o-linear-gradient(left, rgba(251,171,69,0) 0%,rgba(251,171,69,0.8) 20%,rgba(251,171,69,1) 53%,rgba(251,171,69,0.8) 79%,rgba(251,171,69,0) 100%);
+		background: -ms-linear-gradient(left, rgba(251,171,69,0) 0%,rgba(251,171,69,0.8) 20%,rgba(251,171,69,1) 53%,rgba(251,171,69,0.8) 79%,rgba(251,171,69,0) 100%);
+		background: linear-gradient(left, rgba(251,171,69,0) 0%,rgba(251,171,69,0.8) 20%,rgba(251,171,69,1) 53%,rgba(251,171,69,0.8) 79%,rgba(251,171,69,0) 100%);
+	}
 
 #wrapper p{
 	margin-bottom:15px;
@@ -107,6 +102,7 @@ textarea:-moz-placeholder{
 } 
 input {
   outline: none;
+  color: black;
 }
 
 /* all the input except submit and checkbox */
@@ -141,12 +137,12 @@ input {
 
 /** the magic icon trick ! **/
 [data-icon]:after {
-    content: attr(data-icon);
-    font-family: 'FontomasCustomRegular';
-    color: rgb(106, 159, 171);
-    position: absolute;
-    left: 10px;
-    top: 35px;
+	content: attr(data-icon);
+	font-family: 'FontomasCustomRegular';
+	color: rgb(255, 188, 102);
+	position: absolute;
+	left: 10px;
+	top: 35px;
 	width: 30px;
 }
 
@@ -261,7 +257,7 @@ p.change_link{
 	font-weight: bold;
 	background: rgb(247, 248, 241);
 	padding: 2px 6px;
-	color: rgb(29, 162, 193);
+	color: #FBAB45;
 	margin-left: 10px;
 	text-decoration: none;
 	-webkit-border-radius: 4px;
@@ -269,16 +265,16 @@ p.change_link{
 	border-radius: 4px;
 	border: 1px solid rgb(203, 213, 214);
 	-webkit-transition: all 0.4s linear;
-	-moz-transition: all 0.4s  linear;
+	-moz-transition: all 0.4s linear;
 	-o-transition: all 0.4s linear;
-	-ms-transition: all 0.4s  linear;
-	transition: all 0.4s  linear;
+	-ms-transition: all 0.4s linear;
+	transition: all 0.4s linear;
 }
-#wrapper p.change_link a:hover {
-	color: rgb(57, 191, 215);
-	background: rgb(247, 247, 247);
-	border: 1px solid rgb(74, 179, 198);
-}
+	#wrapper p.change_link a:hover {
+		color: #FBAB45;
+		background: rgb(247, 247, 247);
+		border: 1px solid rgb(74, 179, 198);
+	}
 #wrapper p.change_link a:active{
 	position: relative;
 	top: 1px;
