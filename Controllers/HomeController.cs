@@ -23,6 +23,16 @@ namespace FagElGamous.Controllers
             return View();
         }
 
+        public IActionResult AllSites()
+        {
+            return View();
+        }
+
+        public IActionResult AccountInfo()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
