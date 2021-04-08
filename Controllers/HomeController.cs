@@ -1,4 +1,5 @@
 ﻿using FagElGamous.Models;
+using FagElGamous.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,6 +13,8 @@ namespace FagElGamous.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private IMummyRepository _repository;
+        public int PageSize = 10;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -23,9 +26,23 @@ namespace FagElGamous.Controllers
             return View();
         }
 
-        public IActionResult AllSites()
+        public IActionResult AllSites(/*int pageNum = 1*/)
         {
             return View();
+
+            //pagination when we get DB set up
+            /*return View(new ListViewModel
+            {
+                Sites = _repository.Sites
+                    .Skip((pageNum - 1) * PageSize)
+                    .Take(PageSize),
+                Paginginfo = new PagingInfo
+                {
+                    CurrentPage = pageNum,
+                    ItemsPerPage = PageSize,
+                    TotalNumItems = _repository.Sites.Count()
+                },
+            });*/
         }
 
         public IActionResult AccountInfo()
