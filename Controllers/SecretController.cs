@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 
 namespace FagElGamous.Controllers
-{
+{ 
+
     [Authorize]
     public class SecretController : Controller
     {
