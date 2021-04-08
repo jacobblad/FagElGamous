@@ -27,14 +27,10 @@ namespace FagElGamous
         {
             services.AddControllersWithViews();
 
-            services.AddAuthentication(IISDefaults.AuthenticationScheme);
-
             /*services.AddDbContext<MummyDbContext>(options =>
             {
                 object p = options.UseMySql(Configuration["ConnectionStrings:MummyConnection"]);
             });*/
-
-            services.AddScoped<IMummyRepository, EFMummyRepository>();
 
             //Google Authentication
             services.AddAuthentication()
