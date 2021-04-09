@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Server.IISIntegration;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,21 +28,24 @@ namespace FagElGamous
         {
             services.AddControllersWithViews();
 
-            /*services.AddDbContext<MummyDbContext>(options =>
+            services.AddDbContext<MummyDbContext>(options =>
             {
-                object p = options.UseMySql(Configuration["ConnectionStrings:MummyConnection"]);
-            });*/
+                object p = options.UseMySql(Configuration["ConnectionStrings:MummyDbConnection"]);
+            });
+
+            services.AddAuthorization();
 
             //Google Authentication
             services.AddAuthentication()
-        .AddGoogle(options =>
+        /*.AddGoogle(options =>
         {
             IConfigurationSection googleAuthNSection =
                 Configuration.GetSection("Authentication:Google");
 
             options.ClientId = googleAuthNSection["ClientId"];
             options.ClientSecret = googleAuthNSection["ClientSecret"];
-        });
+        });*/
+        ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
