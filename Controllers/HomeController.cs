@@ -13,7 +13,7 @@ namespace FagElGamous.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private IMummyRepository _repository;
+        private mummiesdbContext _context;
         public int PageSize = 10;
 
         public HomeController(ILogger<HomeController> logger)
