@@ -1,4 +1,5 @@
-﻿
+﻿@RenderSection("Scripts", false)
+
 <!DOCTYPE html>
 <!--
 Template Name: Sislaf
@@ -20,7 +21,7 @@ Licence URI: https://www.os-templates.com/template-terms
     <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
-      <!-- Top Background Image Wrapper -->
+    <!-- Top Background Image Wrapper -->
     <div class="bgded overlay" style=" background-color: darkblue;">
         <div class="wrapper row0">
             <div id="topbar" class="hoc clear">
@@ -60,6 +61,7 @@ Licence URI: https://www.os-templates.com/template-terms
                     <ul class="clear">
                         <li class="active"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
 
+                        <li><a asp-area="" asp-controller="Burials" asp-action="Index">CRUD</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="AllSites">View Burial Sites</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="AccountInfo">Account Info</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>
@@ -78,16 +80,16 @@ Licence URI: https://www.os-templates.com/template-terms
             </header>
         </div>
 
-        
-            <div class="container">
-                <main role="main" class="pb-3">
-                    @RenderBody()
-                </main>
-            </div>
+
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
 
     </div>
 
-     <div class="bgded overlay row4" style="background-image:url('images/demo/backgrounds/05.png');">
+    <div class="bgded overlay row4" style="background-image:url('images/demo/backgrounds/05.png');">
         <footer id="footer" class="hoc clear">
             <div class="center btmspace-50">
                 <h6 class="heading">Sislaf</h6>
@@ -175,12 +177,12 @@ Licence URI: https://www.os-templates.com/template-terms
             </div>
         </footer>
     </div>
-     <div class="wrapper row5">
+    <div class="wrapper row5">
         <div id="copyright" class="hoc clear">
             <p class="fl_left">Copyright &copy; 2021 - All Rights Reserved - <a href="#">BYU Egypt Excavation Project - Fag el-Gamous Cemetery Database</a></p>
         </div>
     </div>
-  <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+    <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
     <!-- JAVASCRIPTS -->
     <script src="layout/scripts/jquery.min.js"></script>
     <script src="layout/scripts/jquery.backtotop.js"></script>

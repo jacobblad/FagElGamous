@@ -28,7 +28,7 @@ namespace FagElGamous
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<MummyDbContext>(options =>
+            services.AddDbContext<mummiesdbContext>(options =>
             {
                 object p = options.UseMySql(Configuration["ConnectionStrings:MummyDbConnection"]);
             });
