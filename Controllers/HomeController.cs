@@ -7,13 +7,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace FagElGamous.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private IMummyRepository _repository;
+        private mummiesdbContext _context;
         public int PageSize = 10;
 
         public HomeController(ILogger<HomeController> logger)
@@ -25,6 +26,62 @@ namespace FagElGamous.Controllers
         {
             return View();
         }
+
+
+
+        public IActionResult MultiDatabase()
+        {
+            using (mummiesdbContext db = new mummiesdbContext())
+            {
+                List<Burial> burials = db.Burial.ToList();
+                List<Sample> samples = db.Sample.ToList();
+                List<C14> c14s = db.C14.ToList();
+                List<Cranial> cranials = db.Cranial.ToList();
+
+                var mummyRecord = from b in burials
+                                  join s in samples on b.BurialId equals s.BurialFk into table1
+                                  from s in table1.ToList()
+                                  join C in c14s on b.BurialId equals C.BurialFk into table2
+                                  from C in table2.ToList()
+                                      //join c in cranials on b.BurialId equals c.BurialFk into table3
+                                      //from c in table3.ToList()
+                                  select new ViewModel
+                                  {
+                                      burial = b,
+                                      sample = s,
+                                      c14 = C,
+                                      //cranial = c
+                                  };
+                return View(mummyRecord);
+            }
+        }
+
+
+
+        //This is me trying to figure out how to get possible table data from filtering
+        //Two field matching
+        /*[HttpPost]
+        public IActionResult MultiDatabase(string? field1, string recordValue1, string? field2, string recordValue2)
+        //For three field matching, maybe add field and record value 3? Maybe overload the method?
+        {
+            using (mummiesdbContext db = new mummiesdbContext())
+            {
+                List<Burial> burials = db.Burial.ToList();
+                List<Sample> samples = db.Sample.ToList();
+                List<C14> c14s = db.C14.ToList();
+                List<Cranial> cranials = db.Cranial.ToList();
+
+                var mummyRecord = from filtered in burials
+                                  where burials.fieldName1 == recordValue1
+                                  && burials.fieldName2 == recordValue2
+                                  //For three field matching, add values 3?
+                                  select new ViewModel
+                                  {
+                                      burial = filtered,
+                                  };
+                return View(mummyRecord);
+            }
+        }*/
 
         public IActionResult AllSites(/*int pageNum = 1*/)
         {
