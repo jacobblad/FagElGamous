@@ -57,12 +57,12 @@ namespace FagElGamous.Controllers
         }
 
 
-        /*
+
         //This is me trying to figure out how to get possible table data from filtering
         //Two field matching
-        [HttpPost]
-        public IActionResult MultiDatabase(var fieldName1, var recordValue1, var fieldName2, var recordValue2)
-        //For three field matching, maybe add field and record value 3? Maybe overload the function?
+        /*[HttpPost]
+        public IActionResult MultiDatabase(string? field1, string recordValue1, string? field2, string recordValue2)
+        //For three field matching, maybe add field and record value 3? Maybe overload the method?
         {
             using (mummiesdbContext db = new mummiesdbContext())
             {
@@ -71,13 +71,13 @@ namespace FagElGamous.Controllers
                 List<C14> c14s = db.C14.ToList();
                 List<Cranial> cranials = db.Cranial.ToList();
 
-                var mummyRecord = from table in burials
-                                  where fieldName1 equals recordValue1
-                                  and fieldName2 equals recordValue2
+                var mummyRecord = from filtered in burials
+                                  where burials.fieldName1 == recordValue1
+                                  && burials.fieldName2 == recordValue2
                                   //For three field matching, add values 3?
                                   select new ViewModel
                                   {
-                                      filtered = table,
+                                      burial = filtered,
                                   };
                 return View(mummyRecord);
             }
