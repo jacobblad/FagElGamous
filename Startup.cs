@@ -34,10 +34,10 @@ namespace FagElGamous
             {
                 object p = options.UseMySql(Configuration["ConnectionStrings:MummyDbConnection"]);
             });
-            /*services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<FagElGamousContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("FagElGamousContextConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            /*services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();*/
 
             services.AddAuthorization();
@@ -81,6 +81,7 @@ namespace FagElGamous
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
