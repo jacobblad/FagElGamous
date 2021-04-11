@@ -62,7 +62,7 @@ namespace FagElGamous.Controllers
         //Two field matching
         /*[HttpPost]
         public IActionResult MultiDatabase(string? field1, string recordValue1, string? field2, string recordValue2)
-        //For three field matching, maybe add field and record value 3? Maybe overload the method?
+        //For three field matching, maybe add field and record value 3? Maybe overload the method? And yes, the question marks mean I don't know if it is right.
         {
             using (mummiesdbContext db = new mummiesdbContext())
             {
@@ -72,8 +72,8 @@ namespace FagElGamous.Controllers
                 List<Cranial> cranials = db.Cranial.ToList();
 
                 var mummyRecord = from filtered in burials
-                                  where burials.fieldName1 == recordValue1
-                                  && burials.fieldName2 == recordValue2
+                                  where burials.field1 == recordValue1
+                                  && burials.field2 == recordValue2
                                   //For three field matching, add values 3?
                                   select new ViewModel
                                   {
