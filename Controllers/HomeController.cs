@@ -117,6 +117,22 @@ namespace FagElGamous.Controllers
             return View();
         }
 
+
+        [HttpGet]
+        public IActionResult AddImage()
+        {
+            return View();
+        }
+
+        //[HttpPost]
+        //public IActionResult AddImage()
+        //{
+        //    return View();
+        //}
+
+
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
