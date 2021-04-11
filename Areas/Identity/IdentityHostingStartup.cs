@@ -19,7 +19,8 @@ namespace FagElGamous.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("FagElGamousContextConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                    .AddDefaultUI()
                     .AddEntityFrameworkStores<FagElGamousContext>();
             });
         }
