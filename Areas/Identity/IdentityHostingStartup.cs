@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore.Sqlite;
 
 [assembly: HostingStartup(typeof(FagElGamous.Areas.Identity.IdentityHostingStartup))]
 namespace FagElGamous.Areas.Identity
@@ -16,12 +17,13 @@ namespace FagElGamous.Areas.Identity
         {
             builder.ConfigureServices((context, services) => {
                 services.AddDbContext<FagElGamousContext>(options =>
-                    options.UseSqlServer(
+                    options.UseSqlite(
                         context.Configuration.GetConnectionString("FagElGamousContextConnection")));
 
                 services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddDefaultUI()
-                    .AddEntityFrameworkStores<FagElGamousContext>();
+                    .AddEntityFrameworkStores<FagElGamousContext>()
+                    .AddDefaultTokenProviders();
             });
         }
     }

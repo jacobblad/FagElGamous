@@ -35,7 +35,7 @@ namespace FagElGamous
                 object p = options.UseMySql(Configuration["ConnectionStrings:MummyDbConnection"]);
             });
             services.AddDbContext<FagElGamousContext>(options =>
-                options.UseSqlServer(
+                options.UseSqlite(
                     Configuration.GetConnectionString("FagElGamousContextConnection")));
             /*services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<FagElGamousContext>();*/
@@ -93,3 +93,5 @@ namespace FagElGamous
         }
     }
 }
+/*"Server=(localdb)\\mssqllocaldb;Database=FagElGamous;Trusted_Connection=True;MultipleActiveResultSets=true"
+*/
