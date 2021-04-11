@@ -43,6 +43,28 @@
                 </figure>
             </div>
 
+            <!--
+                    cards instead?
+                    <div class="job-listings-cards">
+    {%for job in jobs %}
+        <div class="job-listings-card">
+            <a href={%url 'jobinfo' jobID=job.id applicantID=applicantID%}>
+                <div class="image-wrapper">
+                <img src="" style="width:300px;height:300px">
+                </div>
+                <h3></h3>
+                <h2></h2>
+
+            </a>
+        </div>
+        {% if forloop.counter|divisibleby:4 %}
+        </div>
+        <div class="job-listings-cards">
+        {% endif %}
+        {% endfor %}
+    </div>-->
+
+
             <nav class="pagination">
                 <ul>
                     <li><a href="#">&laquo; Previous</a></li>
