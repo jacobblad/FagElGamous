@@ -34,25 +34,31 @@ namespace FagElGamous
             {
                 object p = options.UseMySql(Configuration["ConnectionStrings:MummyDbConnection"]);
             });
-            /*services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<FagElGamousContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("FagElGamousContextConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();*/
+            /*services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<FagElGamousContext>();*/
 
-            services.AddAuthorization();
+            services.AddRazorPages(options =>
+            {
+                options.Conventions.AuthorizeFolder("/Secret");
+            });
+            services.AddAuthentication();
+            services.AddMvc();
+            /*services.AddAuthorization();*/
 
             //Google Authentication
-            services.AddAuthentication()
-        /*.AddGoogle(options =>
-        {
-            IConfigurationSection googleAuthNSection =
-                Configuration.GetSection("Authentication:Google");
 
-            options.ClientId = googleAuthNSection["ClientId"];
-            options.ClientSecret = googleAuthNSection["ClientSecret"];
-        });*/
-        ;
+            /*.AddGoogle(options =>
+            {
+                IConfigurationSection googleAuthNSection =
+                    Configuration.GetSection("Authentication:Google");
+
+                options.ClientId = googleAuthNSection["ClientId"];
+                options.ClientSecret = googleAuthNSection["ClientSecret"];
+            });*/
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,15 +78,17 @@ namespace FagElGamous
             app.UseStaticFiles();
 
             app.UseRouting();
-
-            app.UseAuthorization();
+            
             app.UseAuthentication();
+            app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
