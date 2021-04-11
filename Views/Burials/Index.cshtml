@@ -5,7 +5,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+
+
+<div class="wrapper row3">
+    <section class="hoc container clear">
+        <div class="sectiontitle">
+            <p class="nospace font-xs">Explor different carbon dating data we have on existing sample from our lab</p>
+            <p class="heading underline font-x2">Burial Data</p>
+            <p>
+                <a class="btn btn-outline-light" asp-action="Create">Create New</a>
+            </p>
+        </div>
+        <ul id="latest" class="nospace group">
+            @foreach (var item in Model)
+            {
+                <li class="">
+                    <article>
+                        <div class="excerpt">
+                            <h6 class="heading">@Html.DisplayFor(modelItem => item.BurialLocation)</h6>
+                            <p>Sex: @Html.DisplayFor(modelItem => item.GenderBodyCol)</p>
+                            <p>Hair Color: @Html.DisplayFor(modelItem => item.HairColorDescription)</p>
+                            <p>Age: @Html.DisplayFor(modelItem => item.EstimateAge)</p>
+                            <footer><a class="btn" asp-action="Details" asp-route-id="@item.BurialId">See More</a></footer>
+                        </div>
+                    </article>
+                </li>
+                <br />
+            }
+        </ul>
+    </section>
+</div>
+
+
 
 <p>
     <div class="text-white-50">

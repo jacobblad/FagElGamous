@@ -19,11 +19,11 @@ namespace FagElGamous.Models
         private static readonly RegionEndpoint bucketRegion = RegionEndpoint.USEast1;
         private static IAmazonS3 s3Client;
 
-        public static void Main()
-        {
-            s3Client = new AmazonS3Client(bucketRegion);
-            UploadFileAsync().Wait();
-        }
+        //public static void Main()
+        //{
+        //    s3Client = new AmazonS3Client(bucketRegion);
+        //    UploadFileAsync().Wait();
+        //}
 
         private static async Task UploadFileAsync()
         {
