@@ -5,12 +5,12 @@
 
 @*<input type=""
 
-*@<form asp-action="UserFiltering" asp-controller="Home" method="post">
+*@<form asp-action="HairFiltering" asp-controller="Home" method="post">
     <div>
         <label asp-for="FieldName"></label>
         <select asp-for="FieldName">
             <option value="">Select One</option>
-            <vc:filtering />
+            <vc:hair />
         </select>
     </div>
     <div>

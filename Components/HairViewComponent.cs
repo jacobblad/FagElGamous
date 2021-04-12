@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace FagElGamous.Components
 {
-    public class FilteringViewComponent : ViewComponent
+    public class HairViewComponent : ViewComponent
     {
         private mummiesdbContext context;
-        public FilteringViewComponent(mummiesdbContext ctx)
+        public HairViewComponent(mummiesdbContext ctx)
         {
             context = ctx;
         }
