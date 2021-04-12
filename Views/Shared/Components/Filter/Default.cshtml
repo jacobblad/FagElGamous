@@ -1,6 +1,9 @@
 ﻿@model IEnumerable<string>
 
-@foreach(string x in Model)
-            {
-                <a asp-controller="Burial" asp-action="Index" asp-route-sex="@x">@x</a>
-            }
+
+    <select>
+        @foreach (string x in Model)
+        {
+            <option asp-controller="Burial" asp-action="Index" asp-route-sex="@x">@x</option>
+        }
+    </select>
