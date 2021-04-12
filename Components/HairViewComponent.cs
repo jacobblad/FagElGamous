@@ -17,8 +17,10 @@ namespace FagElGamous.Components
         public IViewComponentResult Invoke()
         {
             return View(context.Burial
+                //.Select(x => x.HairColorCode)
                 .Distinct()
-                .OrderBy(x => x));
+                .OrderBy(x => x)
+                .ToList());
         }
     }
 }

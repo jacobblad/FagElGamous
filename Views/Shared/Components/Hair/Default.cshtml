@@ -2,5 +2,5 @@
 
 @foreach (var x in Model)
 {
-    <option asp-action="HairFiltering" asp-controller="Home" asp-route-haircolorcode="@x.HairColorCode">@x.HairColorDescription</option>
+    <a asp-action="UserFiltering" asp-controller="Home" asp-route-haircolorcode="@x.HairColorCode">@x.HairColorDescription</a>
 }
