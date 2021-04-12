@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace FagElGamous.Models.ViewModels
 {
-    public class ListViewModel
+    public class BurialIndexViewModel
     {
         public List<Burial> Burials { get; set; }
+
+        public PagingInfo PagingInfo { get; set; }
     }
 }

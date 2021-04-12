@@ -1,11 +1,11 @@
-﻿@model IEnumerable<FagElGamous.Models.Burial>
+﻿@model BurialIndexViewModel   
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<vc:filter></vc:filter>
 
 <div class="wrapper row3">
     <section class="hoc container clear">
@@ -21,7 +21,7 @@
             </p>
             <br />
             <br />
-            @foreach (var item in Model)
+            @foreach (var item in Model.Burials)
             {
                 <li class="">
                     <article>
@@ -38,11 +38,23 @@
             }
         </ul>
     </section>
+    <nav class="pagination" >
+        <ul page-info="@Model.PagingInfo"
+            page-classes-enabled="true"
+            page-class="btn"
+            page-class-normal="btn-outline-dark"
+            page-class-selected="current"
+            >
+        </ul>
+    </nav>
+    <br /><br /><br /><br />
 </div>
 
 
 
-<p>
+
+
+@*<p>
     <div class="text-white-50">
         <a asp-action="Create">Create New</a>
     </div>
@@ -730,4 +742,4 @@
             }
         </tbody>
     </table>
-</div>
+</div>*@
