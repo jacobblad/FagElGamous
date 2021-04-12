@@ -55,7 +55,13 @@ namespace FagElGamous.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult UserFiltering(Filter model)
+        {
+
+            return Content($"This is your filter: {model.FieldName}. This is your value: {model.FieldValue}");
+        }
+        [HttpGet]
         public IActionResult UserFiltering()
         {
 
