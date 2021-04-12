@@ -90,14 +90,14 @@ namespace FagElGamous.Controllers
             //pagination when we get DB set up
             /*return View(new ListViewModel
             {
-                Sites = _repository.Sites
+                Sites = _context.Sites
                     .Skip((pageNum - 1) * PageSize)
                     .Take(PageSize),
                 Paginginfo = new PagingInfo
                 {
                     CurrentPage = pageNum,
                     ItemsPerPage = PageSize,
-                    TotalNumItems = _repository.Sites.Count()
+                    TotalNumItems = _context.Sites.Count()
                 },
             });*/
         }
