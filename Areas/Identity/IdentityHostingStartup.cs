@@ -15,7 +15,8 @@ namespace FagElGamous.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
+            builder.ConfigureServices((context, services) =>
+            {
                 services.AddDbContext<FagElGamousContext>(options =>
                     options.UseSqlite(
                         context.Configuration.GetConnectionString("FagElGamousContextConnection")));
@@ -24,6 +25,20 @@ namespace FagElGamous.Areas.Identity
                     .AddDefaultUI()
                     .AddEntityFrameworkStores<FagElGamousContext>()
                     .AddDefaultTokenProviders();
+                services.AddControllersWithViews();
+                services.AddRazorPages();
+
+                services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("readpolicy",
+                        builder => builder.RequireRole("Admin", "Researcher"));
+                    options.AddPolicy("writepolicy",
+                        builder => builder.RequireRole("Admin", "Researcher"));
+                    options.AddPolicy("both",
+                        builder => builder.RequireRole("Admin", "Researcher"));
+                    options.AddPolicy("admin",
+                        builder => builder.RequireRole("Admin"));
+                });
             });
         }
     }
