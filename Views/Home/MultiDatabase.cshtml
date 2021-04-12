@@ -6,55 +6,50 @@
 
 @model IEnumerable<FagElGamous.Models.ViewModels.ViewModel>
 
-<div class="container-fluid py-4">
-    <h4 class="text-center text-uppercase">Connected Record</h4>
-    <table class="table table-striped table-bordered">
-        <thead class="bg-dark text-black-50">
-            <tr>
-                <th>burial.BurialId</th>
-                <th>burial.BurialLocation</th>
-                <th>sample.BurialFk</th>
-                <th>sample.BurialLocation</th>
-                <th>c14.BurialFk</th>
-                <th>c14.BurialLocation</th>
-                @*<th>cranial.BurialFk</th>*@
-                @*<th>cranial.BurialLocation</th>*@
-                <th>burial.BurialSituation</th>
-                <th>burial.GenderGe</th>
-                <th>burial.SkullTrama</th>
-                <th>sample.SampleId</th>
-                <th>sample.Notes</th>
-                <th>c14.C14Id</th>
-                <th>c14.QuestionS</th>
-                @*<th>cranial.CranialId</th>*@
-                <th>@*cranial.BurialArtifactDescription*@</th>
-            </tr>
-        </thead>
-        <tbody>
+
+<div class="wrapper row3">
+    <section class="hoc container clear">
+        <div class="sectiontitle">
+            <p class="nospace font-xs">Explor different biological samples we have in our lab</p>
+            <p class="heading underline font-x2">Biological Samples</p>
+            <br />
+            
+        </div>
+        <ul id="latest" class="nospace group">
+
+            <p>
+                <a class="btn btn-outline-light" asp-action="Create">Create New Record</a>
+            </p>
+            <br />
+            <br />
             @foreach (var item in Model)
             {
-            <tr>
-                <td>@item.burial.BurialId</td>
-                <td>@item.burial.BurialLocation</td>
-                <td>@item.sample.BurialFk</td>
-                <td>@item.sample.BurialLocation</td>
-                <td>@item.c14.BurialFk</td>
-                <td>@item.c14.BurialLocation</td>
-                @*<td>@item.cranial.BurialFk</td>*@
-                @*<td>@item.cranial.BurialLocation</td>*@
-
-                <td>@item.burial.BurialSituation</td>
-                <td>@item.burial.GenderGe</td>
-                <td>@item.burial.SkullTrama</td>
-                <td>@item.sample.SampleId</td>
-                <td>@item.sample.Notes</td>
-                <td>@item.c14.C14Id</td>
-                <td>@item.c14.QuestionS</td>
-                <td>@*@item.cranial.CranialId*@</td>
-                <td>@*@item.cranial.BurialArtifactDescription*@</td>
-            </tr>
-
+                <li class="">
+                    <article>
+                        <div class="excerpt">
+                            <h6 class="heading">@item.burial.BurialId</h6>
+                            <p>@item.burial.BurialLocation</p>
+                            <p>@item.sample.BurialFk</p>
+                            <p>@item.sample.BurialLocation</p>
+                            <p>@item.c14.BurialFk</p>
+                            <p>@item.c14.BurialLocation</p>
+                            <p>@item.burial.BurialSituation</p>
+                            <p>@item.burial.GenderGe</p>
+                            <p>@item.burial.SkullTrama</p>
+                            <p>@item.sample.SampleId</p>
+                            <p>@item.sample.Notes</p>
+                            <p>@item.c14.C14Id</p>
+                            <p>@item.c14.QuestionS</p>
+                            <footer><a class="btn" asp-action="Details" asp-route-id="@item.burial.BurialId">See More</a></footer>
+                        </div>
+                    </article>
+                </li>
+                <br />
             }
-        </tbody>
-    </table>
-</div>  
+        </ul>
+    </section>
+</div>
+
+
+
+

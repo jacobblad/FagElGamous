@@ -19,6 +19,8 @@ Licence URI: https://www.os-templates.com/template-terms
     <link href="~/css/animate-custom.css" rel="stylesheet" type="text/css" media="all">
     <link href="~/css/demo.css" rel="stylesheet" type="text/css" media="all">
     <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all">
+
+    
 </head>
 <body id="top">
     <!-- Top Background Image Wrapper -->
@@ -31,26 +33,26 @@ Licence URI: https://www.os-templates.com/template-terms
                         <li><i class="far fa-envelope rgtspace-5"></i> info@domain.com</li>
                     </ul>
                 </div>
-                
+
                 <div class="fl_right">
                     <partial name="_LoginPartial" />
                     @*<ul class="nospace">
-                        <li><a asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i></a></li>
-                        <li><a href="#" title="Help Centre"><i class="far fa-life-ring"></i></a></li>
-                        <li><a asp-controller="Home" asp-action="Login" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
-                        <li><a href="#" title="Sign Up"><i class="fas fa-edit"></i></a></li>
-                        <li id="searchform">
-                            <div>
-                                <form action="#" method="post">
-                                    <fieldset>
-                                        <legend>Quick Search:</legend>
-                                        <input type="text" placeholder="Enter search term&hellip;">
-                                        <button type="submit"><i class="fas fa-search"></i></button>
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </li>
-                    </ul>*@
+                            <li><a asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i></a></li>
+                            <li><a href="#" title="Help Centre"><i class="far fa-life-ring"></i></a></li>
+                            <li><a asp-controller="Home" asp-action="Login" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+                            <li><a href="#" title="Sign Up"><i class="fas fa-edit"></i></a></li>
+                            <li id="searchform">
+                                <div>
+                                    <form action="#" method="post">
+                                        <fieldset>
+                                            <legend>Quick Search:</legend>
+                                            <input type="text" placeholder="Enter search term&hellip;">
+                                            <button type="submit"><i class="fas fa-search"></i></button>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>*@
                 </div>
             </div>
         </div>
@@ -64,6 +66,7 @@ Licence URI: https://www.os-templates.com/template-terms
                         <li class="active"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
 
                         <li><a asp-area="" asp-controller="Home" asp-action="MultiDatabase">MultiDatabase</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="UserFiltering">Filtering</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="AddImage">Add Image</a></li>
                         <li><a asp-area="" asp-controller="Burials" asp-action="Index">Burial</a></li>
                         <li><a asp-area="" asp-controller="Samples" asp-action="Index">Sample</a></li>
@@ -71,15 +74,14 @@ Licence URI: https://www.os-templates.com/template-terms
                         <li><a asp-area="" asp-controller="Cranials" asp-action="Index">Cranial</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="AllSites">View Burial Sites</a></li>
                         <li><a asp-area="" asp-controller="Secret" asp-action="Index">Secrets</a></li>
-                        <li><a asp-controller="Role" asp-action="Index">Roles</a></li>
 
                         <!--<li>
-        <a class="drop" asp-area="" asp-controller="Home" asp-action="AccountInfo">Account</a>
-        <ul>-->
+                        <a class="drop" asp-area="" asp-controller="Home" asp-action="AccountInfo">Account</a>
+                        <ul>-->
                         @* <li><a asp-area="" asp-controller="Home" asp-action="AccountInfo">View Account Info</a></li>*@
                         <!-- <li><a asp-area="" asp-controller="Home" asp-action="Admin">Admin Stuff</a></li> -->
                         <!--</ul>
-    </li>-->
+                        </li>-->
 
                     </ul>
                 </nav>
@@ -193,5 +195,7 @@ Licence URI: https://www.os-templates.com/template-terms
     <script src="layout/scripts/jquery.min.js"></script>
     <script src="layout/scripts/jquery.backtotop.js"></script>
     <script src="layout/scripts/jquery.mobilemenu.js"></script>
+
+    
 </body>
 </html>
