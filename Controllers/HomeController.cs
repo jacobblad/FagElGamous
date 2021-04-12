@@ -55,9 +55,44 @@ namespace FagElGamous.Controllers
             }
         }
 
+        public Burial GetTableField()
+        {
+            Burial testqfd = new Burial();
+
+            return testqfd;
+        }
+
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult UserFiltering(Filter model)
         {
+
+
+            string fieldName = model.FieldName;
+            string fieldValue = model.FieldValue;
+            string fieldName2 = model.FieldName2;
+            string fieldValue2 = model.FieldValue2;
+
+
+
+            using (mummiesdbContext db = new mummiesdbContext())
+            {
+                List<Burial> burials = db.Burial.ToList();
+
+                var mummyRecord = from filtered in burials
+                                  where filtered.HairColorCode == fieldValue
+                                  
+                                  //&& burials.($"{fieldName2}") == fieldValue2
+                                  //For three field matching, add values 3?
+                                  select new ViewModel
+                                  {
+                                      burial = filtered,
+                                  };
+                return View(mummyRecord);
+            }
+
+
+
+
 
             return Content($"This is your filter: {model.FieldName}. This is your value: {model.FieldValue}");
         }
@@ -71,28 +106,28 @@ namespace FagElGamous.Controllers
 
         //This is me trying to figure out how to get possible table data from filtering
         //Two field matching
-        /*[HttpPost]
-        public IActionResult MultiDatabase(string? field1, string recordValue1, string? field2, string recordValue2)
-        //For three field matching, maybe add field and record value 3? Maybe overload the method? And yes, the question marks mean I don't know if it is right.
-        {
-            using (mummiesdbContext db = new mummiesdbContext())
-            {
-                List<Burial> burials = db.Burial.ToList();
-                List<Sample> samples = db.Sample.ToList();
-                List<C14> c14s = db.C14.ToList();
-                List<Cranial> cranials = db.Cranial.ToList();
+        //[HttpPost]
+        //public IActionResult MultiDatabase(string? field1, string recordValue1, string? field2, string recordValue2)
+        ////For three field matching, maybe add field and record value 3? Maybe overload the method? And yes, the question marks mean I don't know if it is right.
+        //{
+        //    using (mummiesdbContext db = new mummiesdbContext())
+        //    {
+        //        List<Burial> burials = db.Burial.ToList();
+        //        List<Sample> samples = db.Sample.ToList();
+        //        List<C14> c14s = db.C14.ToList();
+        //        List<Cranial> cranials = db.Cranial.ToList();
 
-                var mummyRecord = from filtered in burials
-                                  where burials.field1 == recordValue1
-                                  && burials.field2 == recordValue2
-                                  //For three field matching, add values 3?
-                                  select new ViewModel
-                                  {
-                                      burial = filtered,
-                                  };
-                return View(mummyRecord);
-            }
-        }*/
+        //        var mummyRecord = from filtered in burials
+        //                          where burials.field1 == recordValue1
+        //                          && burials.field2 == recordValue2
+        //                          //For three field matching, add values 3?
+        //                          select new ViewModel
+        //                          {
+        //                              burial = filtered,
+        //                          };
+        //        return View(mummyRecord);
+        //    }
+        //}
 
         public IActionResult AllSites(/*int pageNum = 1*/)
         {

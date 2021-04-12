@@ -15,6 +15,12 @@ namespace FagElGamous.Models
         [Required]
         [DisplayName("Field Value")]
         public string FieldValue { get; set; }
+        [Required]
+        [DisplayName("Field Name")]
+        public string FieldValue2 { get; set; }
+        [Required]
+        [DisplayName("Field Value")]
+        public string FieldName2 { get; set; }
 
     }
 }
