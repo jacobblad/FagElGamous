@@ -11,11 +11,16 @@
         <div class="sectiontitle">
             <p class="nospace font-xs">Explor different Cranial Measurment data we have on existing sample from our lab</p>
             <p class="heading underline font-x2">Cranial Measurment Data</p>
-            <p>
-                <a class="btn btn-outline-light" asp-action="Create">Create New</a>
-            </p>
+
         </div>
+        
         <ul id="latest" class="nospace group">
+
+            <p>
+                <a class="btn btn-outline-light" asp-action="Create">Create New Record</a>
+            </p>
+            <br />
+            <br />
             @foreach (var item in Model)
             {
                 <li class="">
