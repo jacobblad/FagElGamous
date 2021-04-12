@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FagElGamous.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, Researcher")]
     public class SecretController : Controller
     {
         public IActionResult Index()
