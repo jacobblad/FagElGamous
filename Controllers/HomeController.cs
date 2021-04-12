@@ -28,7 +28,6 @@ namespace FagElGamous.Controllers
         }
 
 
-
         public IActionResult MultiDatabase()
         {
             using (mummiesdbContext db = new mummiesdbContext())
@@ -56,6 +55,18 @@ namespace FagElGamous.Controllers
             }
         }
 
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult UserFiltering(Filter model)
+        {
+
+            return Content($"This is your filter: {model.FieldName}. This is your value: {model.FieldValue}");
+        }
+        [HttpGet]
+        public IActionResult UserFiltering()
+        {
+
+            return View();
+        }
 
 
         //This is me trying to figure out how to get possible table data from filtering
@@ -90,14 +101,14 @@ namespace FagElGamous.Controllers
             //pagination when we get DB set up
             /*return View(new ListViewModel
             {
-                Sites = _repository.Sites
+                Sites = _context.Sites
                     .Skip((pageNum - 1) * PageSize)
                     .Take(PageSize),
                 Paginginfo = new PagingInfo
                 {
                     CurrentPage = pageNum,
                     ItemsPerPage = PageSize,
-                    TotalNumItems = _repository.Sites.Count()
+                    TotalNumItems = _context.Sites.Count()
                 },
             });*/
         }
