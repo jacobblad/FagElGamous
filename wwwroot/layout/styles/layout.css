@@ -362,8 +362,12 @@ input:focus, textarea:focus, *:required:focus{border-color:#FBAB45 !important;}
 .overlay.light{color:#474747;}
 .overlay.light::after{background-color:rgba(255,255,255,.7);}
 
-.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#FBAB45; border-color:#FBAB45;}
-.btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
+.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#FBAB45; border-color:#FBAB45; cursor:pointer;}
+	.btn:hover, .btn.inverse {
+		color: inherit;
+		background-color: inherit;
+		border-color: inherit;
+	}
 
 .imgover:hover::before{background-color:rgba(251,171,69,.5);/* #FBAB45 */}
 .imgover, .imgover:hover::after{color:#FFFFFF;}
