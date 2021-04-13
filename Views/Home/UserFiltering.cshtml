@@ -10,17 +10,7 @@
         <label asp-for="FieldName"></label>
         <select asp-for="FieldName">
             <option value="">Select One</option>
-            <vc:filtering />
-        </select>
-    </div>
-    <div>
-        <label asp-for="FieldValue"></label>
-        <select asp-for="FieldValue">
-            <option value="">Select One</option>
-            <option value="Hair">Hair</option>
-            <option value="Bones">Bones</option>
-            <option value="Location">Location</option>
-            <option value="Direction">Direction</option>
+            <vc:hair />
         </select>
     </div>
     <button type="submit">Filter!</button>

@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 
 namespace FagElGamous.Components
 {
-    public class FilteringViewComponent : ViewComponent
+    public class HairViewComponent : ViewComponent
     {
         private mummiesdbContext context;
-        public FilteringViewComponent(mummiesdbContext ctx)
+        public HairViewComponent(mummiesdbContext ctx)
         {
             context = ctx;
         }
         public IViewComponentResult Invoke()
         {
             return View(context.Burial
+                //.Select(x => x.HairColorCode)
                 .Distinct()
-                .OrderBy(x => x));
+                .OrderBy(x => x)
+                .ToList());
         }
     }
 }

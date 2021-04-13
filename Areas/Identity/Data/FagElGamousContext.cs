@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FagElGamous.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,19 @@ namespace FagElGamous.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            /*builder.Entity<ApplicationUser>()
+                .HasMany(u => u.Roles)
+                .WithMany("Users")
+                .UsingEntity<IdentityUserRole<string>>(
+                    userRole => userRole.HasOne<IdentityRole>()
+                        .WithMany()
+                        .HasForeignKey(ur => ur.RoleId)
+                        .IsRequired(),
+                    userRole => userRole.HasOne<ApplicationUser>()
+                        .WithMany()
+                        .HasForeignKey(ur => ur.UserId)
+                        .IsRequired());*/
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);

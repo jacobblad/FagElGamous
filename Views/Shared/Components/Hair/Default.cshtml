@@ -1,0 +1,6 @@
+﻿@model IEnumerable<Burial>
+
+@foreach (var x in Model)
+{
+    <a asp-action="UserFiltering" asp-controller="Home" asp-route-haircolorcode="@x.HairColorCode">@x.HairColorDescription</a>
+}
