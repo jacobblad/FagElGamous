@@ -20,14 +20,16 @@ namespace FagElGamous
         }
 
         // GET: Burials
-        public async Task<IActionResult> Index(int pageNum = 1)
+        public async Task<IActionResult> Index(string? gender, string? directionhead, string? haircolor, string? agerange, int pageNum = 1)
         {
-            int pageSize = 30;
-            //int pageNum = 1;
+            int pageSize = 17;
 
             return View(new BurialIndexViewModel
             {
                 Burials = (await _context.Burial
+                .Where(x => (x.GenderGe == gender || gender == null)
+                    & (x.HeadDirection == directionhead || directionhead == null) )
+                .OrderBy(x => x.BurialId)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync()),
@@ -37,17 +39,69 @@ namespace FagElGamous
                     NumItemsPerPage = pageSize,
                     CurrentPage = pageNum,
 
-                    //make changes here for pagination
-                    TotalNumItems = _context.Burial.Count() //video 13- 6:43 to fix filters
+                    //if no filter is selected, or if filter is selected
+                    TotalNumItems = ((gender == null & directionhead == null & haircolor == null || agerange == null) ? _context.Burial.Count()
+                        : _context.Burial.Where(x => x.GenderGe == gender
+                                                   & x.HeadDirection == directionhead
+                                                   & x.HairColorCode == haircolor
+                                                   & x.AgeCode == agerange).Count())
 
-                    //example of finding the total Num with filters
-                    //TotalNumItems = (teamId == null ? _context.Bowlers.Count()
-                    //    : _context.Bowlers.Where(x => x.TeamId == teamId).Count())
-                }
-            });
-                
-                
+                },
+
+                Gender = gender,
+
+                DirectionHead = directionhead,
+
+                AgeRange = agerange,
+
+                HairColor = haircolor
+
+            });        
         }
+
+        // GET Filter
+        public IActionResult Filter(string? gender, string? directionhead, string? haircolor, string? agerange, int pageNum =1)
+        {
+            int pageSize = 17;
+
+            return View("Index", new BurialIndexViewModel
+            {
+                Burials = ( _context.Burial
+                .Where(x => (x.GenderGe == gender || gender == null)
+                    & (x.HeadDirection == directionhead || directionhead == null)
+                    & (x.HairColorCode == haircolor || haircolor == null)
+                    & (x.AgeCode == agerange || agerange == null))
+                .OrderBy(x => x.BurialId)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize)
+                .ToList()),
+
+                PagingInfo = new PagingInfo
+                {
+                    NumItemsPerPage = pageSize,
+                    CurrentPage = pageNum,
+
+                    //if no filter is selected, or if filter is selected
+                    TotalNumItems = ((gender == null & directionhead == null & haircolor == null || agerange == null) ? _context.Burial.Count()
+                        : _context.Burial.Where(x => x.GenderGe == gender 
+                                                   & x.HeadDirection == directionhead
+                                                   & x.HairColorCode ==haircolor
+                                                   & x.AgeCode == agerange).Count())
+
+                },
+
+                Gender = gender,
+
+                DirectionHead = directionhead,
+
+                AgeRange = agerange,
+
+                HairColor = haircolor
+
+            });
+        }
+
+
 
         // GET: Burials/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -138,6 +192,20 @@ namespace FagElGamous
                 return RedirectToAction(nameof(Index));
             }
             return View(burial);
+        }
+
+
+        public IActionResult DisplaySamples(int? burialid)
+        {
+
+            /*select the sample data from the table that is the Join of the sample data table on the burial table 
+              where the sample's burialId matches the burial table's Id. */
+
+            IEnumerable<Sample> samples = _context.Sample
+                .Where(x => x.BurialFk == burialid || burialid == null)
+                .OrderBy(x => x.SampleId);
+
+            return View("DisplaySamples", samples);
         }
 
         // GET: Burials/Delete/5

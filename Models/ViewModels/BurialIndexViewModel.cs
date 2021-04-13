@@ -10,5 +10,14 @@ namespace FagElGamous.Models.ViewModels
         public List<Burial> Burials { get; set; }
 
         public PagingInfo PagingInfo { get; set; }
+
+        public string? Gender { get; set; }
+
+        public string? DirectionHead { get; set; }
+
+        public string? HairColor { get; set; }
+
+        public string? AgeRange { get; set; }
+
     }
 }

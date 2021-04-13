@@ -63,11 +63,14 @@ namespace FagElGamous.Controllers
         }
 
         //[HttpPost, ValidateAntiForgeryToken]
-        //public IActionResult UserFiltering(string haircolorcode)
+        //public IActionResult UserFiltering()
         //{
 
 
-            
+        //    string fieldName = model.FieldName;
+        //    string fieldValue = model.FieldValue;
+        //    string fieldName2 = model.FieldName2;
+        //    string fieldValue2 = model.FieldValue2;
 
 
 
@@ -76,7 +79,7 @@ namespace FagElGamous.Controllers
         //        List<Burial> burials = db.Burial.ToList();
 
         //        var mummyRecord = from filtered in burials
-        //                          where filtered.HairColorCode == haircolorcode
+        //                          where filtered.HairColorCode == fieldValue
                                   
         //                          //&& burials.($"{fieldName2}") == fieldValue2
         //                          //For three field matching, add values 3?
@@ -93,15 +96,13 @@ namespace FagElGamous.Controllers
 
         //    return Content($"This is your filter: {model.FieldName}. This is your value: {model.FieldValue}");
         //}
-        [HttpGet]
-        public IActionResult UserFiltering(string haircolorcode)
-        {
 
-            return View(/*_context.Burial
-                .Distinct()
-                .Where(x => x.HairColorCode == haircolorcode)
-                .OrderBy(x => x)*/);
-        }
+        //[HttpGet]
+        //public IActionResult UserFiltering()
+        //{
+
+        //    return View();
+        //}
 
 
         //This is me trying to figure out how to get possible table data from filtering
@@ -146,16 +147,6 @@ namespace FagElGamous.Controllers
                     TotalNumItems = _context.Sites.Count()
                 },
             });*/
-        }
-        public IActionResult DisplaySamples(int burialid)
-        {
-
-            /*select the sample data from the table that is the Join of the sample data table on the burial table 
-              where the sample's burialId matches the burial table's Id. */
-            
-            return View(_context.Sample
-                .Where(x => x.BurialFk == burialid || burialid == null)
-                .OrderBy(x => x.SampleId));
         }
 
         public IActionResult AccountInfo()

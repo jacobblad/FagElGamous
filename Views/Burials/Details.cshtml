@@ -13,7 +13,9 @@
 <h3>To view the samples associated with this record, click here:</h3>
 
 <br />
-<a class="btn btn-outline-dark" asp-action="DisplaySamples" asp-controller="Home" asp-route-burialid="@Html.DisplayNameFor(model => model.BurialId)">View Samples</a>
+<a class="btn btn-outline-dark" asp-action="DisplaySamples" asp-controller="Burials" asp-route-burialid="@Model.BurialId">View Samples</a>
+
+
 @*<vc:sampledata></vc:sampledata>*@
 
 <br />
@@ -687,7 +689,7 @@
 <div>
     @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
     {
-        <a asp-action="Edit" asp-route-id="@Model.BurialId">Edit</a><a> |</a>
+        <a class="btn btn-outline-dark" asp-action="Edit" asp-route-id="@Model.BurialId">Edit</a><a> |</a>
     } 
-        <a asp-action="Index">Back to List</a>
+        <a class="btn btn-outline-dark" asp-action="Index">Back to List</a>
 </div>

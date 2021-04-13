@@ -1,6 +1,19 @@
-﻿@model Sample
+﻿@model IEnumerable<Sample>
 
-@*@foreach(var x in Model)*@
+@foreach (var x in Model)
 {
-    <p>@*@x*@</p>
+    if (x == null)
+    {
+        <p class="text-black-50">There are no samples associated with this mummy.</p>
+    }
+    else
+    {
+        <p>Location Sample Taken From: @x.BurialLocation</p>
+        <p>Sample Notes: @x.Notes</p>
+        <p>Rack # @x.Rack</p>
+        <p>Bag # @x.Bag</p>
+        <p>Previosuly Sampled: @x.SampleId</p>
+        <p>Researcher's Initials: @x.Initials</p>
+    }
+
 }
