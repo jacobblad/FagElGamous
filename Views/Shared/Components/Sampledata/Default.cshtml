@@ -1,6 +1,18 @@
-﻿@model IEnumerable<Burial> 
+﻿@model IEnumerable<Sample> 
 
-@foreach(var x in Model)
+@*//What am I receiving in from this view? The records of associated samples.*@
+
+@foreach (var x in Model)
 {
-    <a asp-action="DisplaySamples" asp-controller="Home" asp-route-burialid="@x.BurialId">@x.BurialId</a>
-}           
+     
+    @if (x == null)
+    {
+        <p>There are no records to display.</p>
+    }
+    else
+    {
+        <p>@x</p>
+        //<a asp-action="DisplaySamples" asp-controller="Burials" asp-route-burialid="@x.BurialFk">@x.BurialFk</a>
+    }
+    
+}
