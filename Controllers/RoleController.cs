@@ -31,6 +31,7 @@ namespace FagElGamous.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(IdentityRole role)
         {
             await roleManager.CreateAsync(role);

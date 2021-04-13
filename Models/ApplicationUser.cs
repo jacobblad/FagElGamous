@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FagElGamous.Models.ViewModels
+namespace FagElGamous.Models
 {
-    public class UserViewModel
+    public class ApplicationUser : IdentityUser
     {
-        public IEnumerable<IdentityUser> Users { get; set; }
-
+        public ICollection<IdentityRole> Roles { get; set; }
     }
 }

@@ -85,21 +85,6 @@ namespace FagElGamous
 
             app.UseEndpoints(endpoints =>
             {
-                //pag-filter endpoints
-                endpoints.MapControllerRoute("genderpagenum",
-                    "Gender/{gender}/{pagenum}",
-                    new { controller = "Burial", action = "Index" });
-                
-                //filter endpoints #9
-                endpoints.MapControllerRoute("gender",
-                    "Gender/{gender}",
-                    new{Controller = "Burial", Action = "Index", pagenum =1}
-                    );
-
-                endpoints.MapControllerRoute("pagenum",
-                    "{pagenum}",
-                    new { Controller = "Burial", Action = "Index" });
-
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
