@@ -64,37 +64,58 @@
             <br />
 
         </div>
+        <br />
+        <br />
         <ul id="latest" class="nospace group">
             <p>
                 @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
                 {
-                    <a class="btn btn-outline-light" asp-action="Create">Create New Record</a>
-                }
+    <a class="btn btn-outline-light" asp-action="Create">Create New Record</a>}
             </p>
             <br />
-            <br />
+            <br>
 
-                @foreach (var item in Model.Burials)
-                {
-                    <li class="" style="width:450px;height:350px;">
-                        <article style="        width: 450px;
-        height: 350px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-">
-                            <div class="excerpt" style="width:400px;height:300px;">
-                                <h6 class="heading">@Html.DisplayFor(modelItem => item.BurialLocation)</h6>
-                                <p>Sex: @Html.DisplayFor(modelItem => item.GenderBodyCol)</p>
-                                <p>Hair Color: @Html.DisplayFor(modelItem => item.HairColorDescription)</p>
-                                <p>Age: @Html.DisplayFor(modelItem => item.EstimateAge)</p>
-                                <footer><a class="btn" asp-action="Details" asp-route-id="@item.BurialId">See More</a></footer>
-                            </div>
-                        </article>
-                    </li>
-                    <br />
-                }
-            </ul>
+            @{ //initialize i counter
+                var i = 1; }
+
+
+
+            @foreach (var item in Model.Burials)
+            {
+    @if ((i % 2) == 1)
+    {
+    <li class="one_half" style="width:400px;height:350px;display:block;">
+        <article style="width:450px;height:350px;display:flex;justify-content:center;align-items:center;">
+            <div class="excerpt" style="width:400px;height:300px;">
+                <h6 class="heading">@Html.DisplayFor(modelItem => item.BurialLocation)</h6>
+                <p>Sex: @Html.DisplayFor(modelItem => item.GenderBodyCol)</p>
+                <p>Hair Color: @Html.DisplayFor(modelItem => item.HairColorDescription)</p>
+                <p>Age: @Html.DisplayFor(modelItem => item.EstimateAge)</p>
+                <footer><a class="btn" asp-action="Details" asp-route-id="@item.BurialId">See More</a></footer>
+            </div>
+        </article>
+    </li>
+                        <br />
+                                            <br />
+ }
+                                        else
+                                        {
+                        <li class="one_half" style="width:400px;height:350px">
+                            <article style="width:450px;height:350px;display:flex;justify-content:center;align-items:center;">
+                                <div class="excerpt" style="width:400px;height:300px;">
+                                    <h6 class="heading">@Html.DisplayFor(modelItem => item.BurialLocation)</h6>
+                                    <p>Sex: @Html.DisplayFor(modelItem => item.GenderBodyCol)</p>
+                                    <p>Hair Color: @Html.DisplayFor(modelItem => item.HairColorDescription)</p>
+                                    <p>Age: @Html.DisplayFor(modelItem => item.EstimateAge)</p>
+                                    <footer><a class="btn" asp-action="Details" asp-route-id="@item.BurialId">See More</a></footer>
+                                </div>
+                            </article>
+                        </li>
+                                            <br />
+                                                                <br />
+  }i++;
+}
+        </ul>
     </section>
     <nav class="pagination">
         <ul page-info="@Model.PagingInfo"
