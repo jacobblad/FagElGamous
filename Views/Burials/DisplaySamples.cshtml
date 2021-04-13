@@ -1,19 +1,27 @@
 ﻿@model IEnumerable<Sample>
 
+@if (Model.Count() == 0)
+{
+    <p class="text-black-50">There are no samples associated with this mummy.</p>
+}
 @foreach (var x in Model)
 {
-    if (x == null)
-    {
-        <p class="text-black-50">There are no samples associated with this mummy.</p>
-    }
-    else
-    {
-        <p>Location Sample Taken From: @x.BurialLocation</p>
-        <p>Sample Notes: @x.Notes</p>
-        <p>Rack # @x.Rack</p>
-        <p>Bag # @x.Bag</p>
-        <p>Previosuly Sampled: @x.SampleId</p>
-        <p>Researcher's Initials: @x.Initials</p>
-    }
 
+
+    <section class="hoc container clear">
+        <ul id="latest" class="nospace group">
+            <li class="">
+                <article>
+                    <div class="excerpt">
+                        <p>Location Sample Taken From: @x.BurialLocation</p>
+                        <p>Sample Notes: @x.Notes</p>
+                        <p>Rack # @x.Rack</p>
+                        <p>Bag # @x.Bag</p>
+                        <p>Previosuly Sampled: @x.SampleId</p>
+                        <p>Researcher's Initials: @x.Initials</p>
+                    </div>
+                </article>
+            </li>
+        </ul>
+    </section>
 }
