@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Cranial>
+@if (Model.Count() == 0)
+    {
+        <p class="text-black-50">There are no Cranial samples associated with this mummy.</p>
+    }
+    else
+    {
+        @foreach (var x in Model)
+        {
+            <p>Location Sample Taken From: @x.BurialLocation</p>
+            <p>Maximum Cranial Length: @x.MaximumCranialLength</p>
+            <p>Maximum Nasal Breadth: @x.MaximumNasalBreadth</p>
+            <p>Basion Bregma Height: @x.BasionBregmaHeight</p>
+            <p>Basion Nasion: @x.BasionNasion</p>
+            <p>Basion Prosthion Length: @x.BasionProsthionLength</p>
+            <p>Bizygomatic Diameter: @x.BizygomaticDiameter</p>
+            <p>Nasion Prosthion: @x.NasionProsthion</p>
+            <p>Maximum Nasal Breadth: @x.MaximumNasalBreadth</p>
+            <p>Interorbital Breadth: @x.InterorbitalBreadth</p>
+            <p>Burial Depth: @x.BurialDepth</p>
+            <p>Burial Artifact Description: @x.BurialArtifactDescription</p>
+            <p>Buried With Artifacts: @x.BuriedWithArtifacts</p>
+        }
+    }

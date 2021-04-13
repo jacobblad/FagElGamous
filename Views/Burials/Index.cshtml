@@ -52,7 +52,7 @@
                 <button class="btn" type="submit">Filter</button>
             </form>
             <br />
-            <button class="btn" type="submit">Filter</button>
+            <a class="btn" asp-controller="Burials" asp-action="Index" asp-route-gender ="" asp-route-directionhead ="" asp-route-haircolor ="" asp-route-agerange ="">Reset Filters</a>
 
         </center>
     </div>
@@ -70,7 +70,8 @@
             <p>
                 @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
                 {
-    <a class="btn btn-outline-light" asp-action="Create">Create New Record</a>}
+                    <a class="btn btn-outline-light" asp-action="Create">Create New Record</a>
+                }
             </p>
             <br />
             <br>
