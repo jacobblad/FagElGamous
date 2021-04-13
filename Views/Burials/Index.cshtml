@@ -27,9 +27,14 @@
 
                 @foreach (var item in Model.Burials)
                 {
-                    <li class="">
-                        <article>
-                            <div class="excerpt">
+                    <li class="" style="width:450px;height:350px;">
+                        <article style="        width: 450px;
+        height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+">
+                            <div class="excerpt" style="width:400px;height:300px;">
                                 <h6 class="heading">@Html.DisplayFor(modelItem => item.BurialLocation)</h6>
                                 <p>Sex: @Html.DisplayFor(modelItem => item.GenderBodyCol)</p>
                                 <p>Hair Color: @Html.DisplayFor(modelItem => item.HairColorDescription)</p>
