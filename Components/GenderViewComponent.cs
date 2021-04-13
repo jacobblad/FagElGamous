@@ -21,6 +21,7 @@ namespace FagElGamous.Components
             return View(context.Burial
                 .Select(x => x.GenderGe)
                 .Distinct()
+                .Skip(2)
                 .OrderBy(x => x)
                 .ToList()); //returns the default view that corresponse to this componet
         }

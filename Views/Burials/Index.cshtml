@@ -1,49 +1,98 @@
-﻿@model FagElGamous.Models.ViewModels.BurialIndexViewModel
+﻿@model BurialIndexViewModel
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<vc:filter></vc:filter>
 
-<div class="wrapper row3">
+
+<div class="wrapper row3"><br /><br />
+    <div class="sectiontitle">
+        <center>
+            <form asp-controller="Burials" asp-action="Filter" method="post">
+                <br />
+                <label>Select a Gender</label>
+                <select name="gender" id="gender">
+                    <option value="">@Model.Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Undetermined">Undetermined</option>
+                </select>
+                <br />
+                <label>Select a Head Direction</label>
+                <select name="directionhead" id="directionhead">
+                    <option value="">@Model.DirectionHead</option>
+                    <option value="West">West</option>
+                    <option value="East">East</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+                <br />
+                <label>Select a Hair Color</label>
+                <select name="haircolor" id="haircolor">
+                    <option value="">@Model.HairColor</option>
+                    <option value="B">Brown</option>
+                    <option value="K">Black</option>
+                    <option value="A">Brown-Red</option>
+                    <option value="R">Blonde-Red</option>
+                    <option value="D">Blonde</option>
+                    <option value="U">Unknown</option>
+                </select>
+                <br />
+                <label>Select a Age Range</label>
+                <select name="agerange" id="agerange">
+                    <option value="">@Model.AgeRange</option>
+                    <option value="A">Adult</option>
+                    <option value="C">Child</option>
+                    <option value="I">Infant</option>
+                    <option value="N">NewBorn</option>
+                    <option value="U">Unknown</option>
+                </select>
+                <br />
+                <button  class="btn" type="submit">Filter</button>
+            </form>
+        </center>
+    </div>
+
     <section class="hoc container clear">
         <div class="sectiontitle">
-            <p class="nospace font-xs">Explor different carbon dating data we have on existing sample from our lab</p>
-            <p class="heading underline font-x2">Burial Data</p>
+            <p class="nospace font-xs">Explore the data we have on hundreds of different mummies</p>
+            <p class="heading underline font-x2">Mummy Archive</p>
             <br />
 
         </div>
         <ul id="latest" class="nospace group">
             <p>
-                @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
-                {
-                    <a class="btn btn-outline-light" asp-action="Create">Create New Record</a>
-                }
+                <a class="btn btn-outline-light" asp-action="Create">Create New Record</a>
             </p>
             <br />
             <br />
 
-                @foreach (var item in Model.Burials)
-                {
-                    <li class="">
-                        <article>
-                            <div class="excerpt">
-                                <h6 class="heading">@Html.DisplayFor(modelItem => item.BurialLocation)</h6>
-                                <p>Sex: @Html.DisplayFor(modelItem => item.GenderBodyCol)</p>
-                                <p>Hair Color: @Html.DisplayFor(modelItem => item.HairColorDescription)</p>
-                                <p>Age: @Html.DisplayFor(modelItem => item.EstimateAge)</p>
-                                <footer><a class="btn" asp-action="Details" asp-route-id="@item.BurialId">See More</a></footer>
-                            </div>
-                        </article>
-                    </li>
-                    <br />
-                }
-            </ul>
+            @foreach (var item in Model.Burials)
+            {
+                <li class="">
+                    <article>
+                        <div class="excerpt">
+                            <h6 class="heading">@item.BurialLocation</h6>
+                            <p>Gender: @item.GenderGe</p>
+                            <p>Estimated Age: @item.EstimateAge </p>
+                            <p>Hair Color: @item.HairColorDescription</p>
+                            <p>Head Direction: @item.HeadDirection</p>
+                            <p>ID: @item.BurialId</p>
+                            <footer><a class="btn" asp-action="Details" asp-route-id="@item.BurialId">See More</a></footer>
+                        </div>
+                    </article>
+                </li>
+                <br />
+            }
+        </ul>
     </section>
     <nav class="pagination">
         <ul page-info="@Model.PagingInfo"
+            page-url-gender="@Model.Gender"
+            page-url-directionhead="@Model.DirectionHead"
+            page-url-haircolor="@Model.HairColor"
+            page-url-agerange="@Model.AgeRange"
             page-classes-enabled="true"
             page-class="btn"
             page-class-normal="btn-outline-dark"
@@ -745,4 +794,38 @@
                 }
             </tbody>
         </table>
-    </div>*@
+    </div>
+
+
+        <div class="container center">
+        <form>
+            <label>Select a Gender</label>
+            <select>
+                <option value="F">Female</option>
+                <option value="M">Male</option>
+                <option value="U">Undetermined</option>
+            </select>
+
+            <label>Select a Hair Color</label>
+            <select>
+                <option value="B">Brown</option>
+                <option value="K">Black</option>
+                <option value="A">Brown-Red</option>
+                <option value="R">Blonde-Red</option>
+                <option value="D">Blonde</option>
+                <option value="U">Unknown</option>
+            </select>
+
+            <label>Select a Age Range</label>
+            <select>
+                <option value="A">Adult</option>
+                <option value="C">Child</option>
+                <option value="I">Infant</option>
+                <option value="N">NewBorn</option>
+                <option value="U">Unknown</option>
+            </select>
+        </form>
+    </div>
+
+
+*@

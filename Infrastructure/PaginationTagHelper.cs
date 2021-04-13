@@ -23,12 +23,7 @@ namespace FagElGamous.Infrastructure
 
         //properties
         public PagingInfo PageInfo { get; set; }
-        
-        [HtmlAttributeName(DictionaryAttributePrefix ="page-url-")]
-        public Dictionary<string, object> KeyValuePairs { get; set; } = new Dictionary<string, object>();
-        [HtmlAttributeNotBound]
-        [ViewContext]
-        public ViewContext ViewContext { get; set; }
+        //public string gender { get; set; }
 
         //css properties
         public bool PageClassesEnabled { get; set; } = false;
@@ -36,11 +31,21 @@ namespace FagElGamous.Infrastructure
         public string PageClassNormal { get; set; }
         public string PageClassSelected { get; set; }
 
+        //dictionary key value pairs
+        [HtmlAttributeName(DictionaryAttributePrefix ="page-url-")]
+        public Dictionary<string, object> KeyValuePairs { get; set; } = new Dictionary<string, object>();
+        
+        
+        [HtmlAttributeNotBound]
+        [ViewContext]
+        public ViewContext ViewContext { get; set; }
+
 
         //override defual process method
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            //IUrlHelper urlHelp = urlHelp = urlInfo.GetUrlHelper(ViewContext);
+            
+            IUrlHelper urlHelp = urlInfo.GetUrlHelper(ViewContext);
 
             //build the ul tag
             TagBuilder ultag = new TagBuilder("ul");
@@ -54,8 +59,8 @@ namespace FagElGamous.Infrastructure
 
                 KeyValuePairs["pageNum"] = i;
 
-                //aTag.Attributes["href"] = urlHelp.Action("Index", KeyValuePairs);
-                aTag.Attributes["href"] = "/Burials/?pagenum=" + i;
+                aTag.Attributes["href"] = urlHelp.Action("Index", KeyValuePairs);
+                
 
                 aTag.InnerHtml.Append(i.ToString());
 

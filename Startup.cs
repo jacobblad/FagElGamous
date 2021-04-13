@@ -85,10 +85,6 @@ namespace FagElGamous
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("burialid",
-                    "Burial/{burialid}",
-                    new { Controller = "Home", action = "UserFiltering" }
-                    );  
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
