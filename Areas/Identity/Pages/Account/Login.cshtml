@@ -9,50 +9,49 @@
 <section>
     <div id="container_demo">
         @*hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  *@
-        <a class="hiddenanchor" id="toregister"></a>
-        <a class="hiddenanchor" id="tologin"></a>
         <div id="wrapper">
             <div id="login" class="animate form">
-                <form asp-route-returnUrl="@Model.ReturnUrl" autocomplete="on" id="account" method="post">
-                    <h4>Use a local account to log in.</h4>
-                    <hr />
-                    <div asp-validation-summary="All" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="Input.Email"  for="emailsignup" class="youmail" data-icon="e">Email:</label>
-                        <input asp-for="Input.Email" class="form-control" id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com" />
-                        <span asp-validation-for="Input.Email" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Input.Password" for="password" class="youpasswd" data-icon="p">Password:</label>
-                        <input asp-for="Input.Password" class="form-control" id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" />
-                        <span asp-validation-for="Input.Password" class="text-danger"></span>
-                    </div>
-                    <br />
-                    <br />
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Log in</button>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label asp-for="Input.RememberMe">
-                                <input asp-for="Input.RememberMe" />
-                                @Html.DisplayNameFor(m => m.Input.RememberMe)
-                            </label>
+                <section>
+                    <form id="account" method="post">
+                        <h4>Use a local account to log in.</h4>
+                        <hr />
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Input.Email" for="emailsignup" class="youmail" data-icon="e">Email:</label>
+                            <input asp-for="Input.Email" class="form-control" id="emailsignup" name="emailsignup" type="email" placeholder="mysupermail@mail.com" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <p>
-                            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                        </p>
-                        <p>
-                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                        </p>
-                        <p>
-                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                        </p>
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <label asp-for="Input.Password" for="password" class="youpasswd" data-icon="p">Password:</label>
+                            <input asp-for="Input.Password" class="form-control" id="password" name="password" type="password" placeholder="eg. X8df!90EO" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label asp-for="Input.RememberMe">
+                                    <input asp-for="Input.RememberMe" />
+                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Log in</button>
+                        </div>
+                        <div class="form-group">
+                            <p>
+                                <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                            </p>
+                            <p>
+                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                            </p>
+                            <p>
+                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                            </p>
+                        </div>
+                    </form>
+                </section>
                 </div>
             </div>
         </div>
