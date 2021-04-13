@@ -1,0 +1,6 @@
+﻿@model IEnumerable<Burial> 
+
+@foreach(var x in Model)
+{
+    <a asp-action="DisplaySamples" asp-controller="Home" asp-route-burialid="@x.BurialId">@x.BurialId</a>
+}           

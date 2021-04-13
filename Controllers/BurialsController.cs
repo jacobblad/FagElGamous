@@ -20,7 +20,7 @@ namespace FagElGamous
         }
 
         // GET: Burials
-        public async Task<IActionResult> Index(int pageNum)
+        public async Task<IActionResult> Index(int pageNum = 1)
         {
             int pageSize = 30;
             //int pageNum = 1;
