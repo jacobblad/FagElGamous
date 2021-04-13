@@ -7,9 +7,11 @@ namespace FagElGamous.Models.ViewModels
 {
     public class PagingInfo
     {
+        public int NumItemsPerPage { get; set; }
+        public int CurrentPage { get; set; } //which page to highlight
         public int TotalNumItems { get; set; }
-        public int ItemsPerPage { get; set; }
-        public int CurrentPage { get; set; }
-        public int TotalPages => (int)(Math.Ceiling((decimal)TotalNumItems / ItemsPerPage));
+        
+        //calc the number of pages
+        public int NumPages => (int)(Math.Ceiling((decimal)TotalNumItems / NumItemsPerPage));
     }
 }

@@ -14,7 +14,9 @@ File: Layout CSS
 
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
-.row0, .row0 a{}
+.row0, .row0 a{
+	color: inherit;
+}
 .row1{border:solid; border-width:1px 0;}
 .row2, .row2 a{}
 .row3, .row3 a{}
@@ -28,6 +30,9 @@ File: Layout CSS
 
 #topbar ul li{display:inline-block; margin-right:15px;}
 #topbar ul li:last-child{margin-right:0; padding-right:0; border-right:none;}
+#tobar ul li a {
+	color: inherit;
+}
 #topbar i{line-height:normal;}
 #topbar > div:nth-of-type(2) i{font-size:1rem;}
 
@@ -54,7 +59,7 @@ File: Layout CSS
 
 /* Page Intro
 --------------------------------------------------------------------------------------------------------------- */
-#pageintro{padding:200px 0 300px;}/* 300px => 100px for #introblocks negative margin */
+#pageintro{padding:100px 0 100px;}/* 300px => 100px for #introblocks negative margin */
 
 #pageintro article, #pageintro article p{display:block; max-width:75%; margin:0 auto; text-align:center;}
 #pageintro article p{max-width:65%; line-height:2rem;}
@@ -228,7 +233,7 @@ This gives a smooth transition to "ALL" elements used in the layout - other than
 If you don't want it to fade all elements, you have to list the ones you want to be faded individually
 Delete it completely to stop fading
 --------------------------------------------------------------------------------------------------------------- */
-*, *::before, *::after{transition:all .3s ease-in-out;}
+*, *::before, *::after{transition:all .05s ease-in-out;}
 #mainav form *{transition:none !important;}
 
 
@@ -346,7 +351,7 @@ td{border-width:0 1px;}
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
 body{color:#A5A6AA; background-color:#1C1D21;}
-a{color:#FBAB45;}
+a:hover{color:#FBAB45;}
 a:active, a:focus{background:transparent !important;}/* IE10 + 11 Bugfix - prevents grey background */
 hr, .borderedbox{border-color:#D7D7D7;}
 label span{color:#FF0000; background-color:inherit;}
@@ -357,8 +362,12 @@ input:focus, textarea:focus, *:required:focus{border-color:#FBAB45 !important;}
 .overlay.light{color:#474747;}
 .overlay.light::after{background-color:rgba(255,255,255,.7);}
 
-.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#FBAB45; border-color:#FBAB45;}
-.btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
+.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#FBAB45; border-color:#FBAB45; cursor:pointer;}
+	.btn:hover, .btn.inverse {
+		color: inherit;
+		background-color: inherit;
+		border-color: inherit;
+	}
 
 .imgover:hover::before{background-color:rgba(251,171,69,.5);/* #FBAB45 */}
 .imgover, .imgover:hover::after{color:#FFFFFF;}

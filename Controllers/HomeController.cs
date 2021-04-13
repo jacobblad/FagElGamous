@@ -55,38 +55,79 @@ namespace FagElGamous.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult UserFiltering()
+        public Burial GetTableField()
+        {
+            Burial testqfd = new Burial();
+
+            return testqfd;
+        }
+
+        //[HttpPost, ValidateAntiForgeryToken]
+        //public IActionResult UserFiltering(string haircolorcode)
+        //{
+
+
+            
+
+
+
+        //    using (mummiesdbContext db = new mummiesdbContext())
+        //    {
+        //        List<Burial> burials = db.Burial.ToList();
+
+        //        var mummyRecord = from filtered in burials
+        //                          where filtered.HairColorCode == haircolorcode
+                                  
+        //                          //&& burials.($"{fieldName2}") == fieldValue2
+        //                          //For three field matching, add values 3?
+        //                          select new ViewModel
+        //                          {
+        //                              burial = filtered,
+        //                          };
+        //        return View(mummyRecord);
+        //    }
+
+
+
+
+
+        //    return Content($"This is your filter: {model.FieldName}. This is your value: {model.FieldValue}");
+        //}
+        [HttpGet]
+        public IActionResult UserFiltering(string haircolorcode)
         {
 
-            return View();
+            return View(/*_context.Burial
+                .Distinct()
+                .Where(x => x.HairColorCode == haircolorcode)
+                .OrderBy(x => x)*/);
         }
 
 
         //This is me trying to figure out how to get possible table data from filtering
         //Two field matching
-        /*[HttpPost]
-        public IActionResult MultiDatabase(string? field1, string recordValue1, string? field2, string recordValue2)
-        //For three field matching, maybe add field and record value 3? Maybe overload the method? And yes, the question marks mean I don't know if it is right.
-        {
-            using (mummiesdbContext db = new mummiesdbContext())
-            {
-                List<Burial> burials = db.Burial.ToList();
-                List<Sample> samples = db.Sample.ToList();
-                List<C14> c14s = db.C14.ToList();
-                List<Cranial> cranials = db.Cranial.ToList();
+        //[HttpPost]
+        //public IActionResult MultiDatabase(string? field1, string recordValue1, string? field2, string recordValue2)
+        ////For three field matching, maybe add field and record value 3? Maybe overload the method? And yes, the question marks mean I don't know if it is right.
+        //{
+        //    using (mummiesdbContext db = new mummiesdbContext())
+        //    {
+        //        List<Burial> burials = db.Burial.ToList();
+        //        List<Sample> samples = db.Sample.ToList();
+        //        List<C14> c14s = db.C14.ToList();
+        //        List<Cranial> cranials = db.Cranial.ToList();
 
-                var mummyRecord = from filtered in burials
-                                  where burials.field1 == recordValue1
-                                  && burials.field2 == recordValue2
-                                  //For three field matching, add values 3?
-                                  select new ViewModel
-                                  {
-                                      burial = filtered,
-                                  };
-                return View(mummyRecord);
-            }
-        }*/
+        //        var mummyRecord = from filtered in burials
+        //                          where burials.field1 == recordValue1
+        //                          && burials.field2 == recordValue2
+        //                          //For three field matching, add values 3?
+        //                          select new ViewModel
+        //                          {
+        //                              burial = filtered,
+        //                          };
+        //        return View(mummyRecord);
+        //    }
+        //}
 
         public IActionResult AllSites(/*int pageNum = 1*/)
         {
