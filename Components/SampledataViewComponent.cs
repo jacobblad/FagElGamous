@@ -18,8 +18,10 @@ namespace FagElGamous.Components
 
         public IViewComponentResult Invoke()
         {
-            return View(context.Burial
-                .Select(x => x.BurialId)
+            //Return all the samples
+            return View(context.Sample
+                //.Select(x => x.BurialFk)//Select the row of samples with matching Burial identifiers
+                //.Where(x => x.BurialFK == givenBurialId)
                 .Distinct()
                 .OrderBy(x => x)
                 .ToList());

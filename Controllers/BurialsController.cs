@@ -194,6 +194,18 @@ namespace FagElGamous
             return View(burial);
         }
 
+
+        public IActionResult DisplaySamples(int? burialid)
+        {
+
+            /*select the sample data from the table that is the Join of the sample data table on the burial table 
+              where the sample's burialId matches the burial table's Id. */
+            
+            return View(_context.Sample
+                .Where(x => x.BurialFk == burialid || burialid == null)
+                .OrderBy(x => x.SampleId));
+        }
+
         // GET: Burials/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
