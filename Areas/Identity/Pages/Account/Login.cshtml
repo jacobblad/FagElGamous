@@ -13,7 +13,7 @@
         <a class="hiddenanchor" id="tologin"></a>
         <div id="wrapper">
             <div id="login" class="animate form">
-                <form action="mysuperscript.php" autocomplete="on" id="account" method="post">
+                <form asp-route-returnUrl="@Model.ReturnUrl" autocomplete="on" id="account" method="post">
                     <h4>Use a local account to log in.</h4>
                     <hr />
                     <div asp-validation-summary="All" class="text-danger"></div>
