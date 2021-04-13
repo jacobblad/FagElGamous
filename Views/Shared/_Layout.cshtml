@@ -72,8 +72,11 @@ Licence URI: https://www.os-templates.com/template-terms
                         <li><a asp-area="" asp-controller="C14" asp-action="Index">C14</a></li>
                         <li><a asp-area="" asp-controller="Cranials" asp-action="Index">Cranial</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="AllSites">View Burial Sites</a></li>
-                        <li><a asp-area="" asp-controller="Secret" asp-action="Index">Secrets</a></li>
-                        <li><a asp-area="" asp-controller="Role" asp-action="Index">Secrets</a></li>
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "admin")).Succeeded)
+                        {
+                            <li><a asp-area="" asp-controller="Admin" asp-action="Index">Manage Users</a></li>
+                        }
+                        
 
                         <!--<li>
     <a class="drop" asp-area="" asp-controller="Home" asp-action="AccountInfo">Account</a>

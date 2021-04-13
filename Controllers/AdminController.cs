@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace FagElGamous.Controllers
 {
-    /*[Authorize(Roles = "Admin")]*/
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly FagElGamousContext _context;
@@ -24,7 +24,7 @@ namespace FagElGamous.Controllers
         // GET: C14
         public async Task<IActionResult> Index()
         {
-            var FagElGamousContext = _context.Users.Include(c => c.Id);
+            var FagElGamousContext = _context.Users;
             return View(await FagElGamousContext.ToListAsync());
         }
 
@@ -37,7 +37,6 @@ namespace FagElGamous.Controllers
             }
 
             var user = await _context.Users
-                .Include(c => c.Id)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
@@ -59,7 +58,7 @@ namespace FagElGamous.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AccessFaliedCount,Claims,ConcurrencyStamp,Email,EmailConfirmed,Id,LockoutEnabled,LockoutEnd,Logins,NormalizedEmail,NormalizedUserName,PasswordHash,PhoneNumber,PhoneNumberConfirmed,Roles,SecurityStamp,TwoFactorEnabled,UserName")] IdentityRole user)
+        public async Task<IActionResult> Create([Bind("Email,LockoutEnabled,LockoutEnd,PhoneNumber")] IdentityRole user)
         {
             if (ModelState.IsValid)
             {
@@ -67,12 +66,11 @@ namespace FagElGamous.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RoleFk"] = new SelectList(_context.UserRoles, "RoleId", "RoleId", user.Id);
             return View(user);
         }
 
         // GET: C14/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string? id)
         {
             if (id == null)
             {
@@ -84,7 +82,7 @@ namespace FagElGamous.Controllers
             {
                 return NotFound();
             }
-            ViewData["RoleFk"] = new SelectList(_context.UserRoles, "RoleId", "RoleId", user.Id);
+
             return View(user);
         }
 
@@ -93,7 +91,7 @@ namespace FagElGamous.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("AccessFaliedCount,Claims,ConcurrencyStamp,Email,EmailConfirmed,Id,LockoutEnabled,LockoutEnd,Logins,NormalizedEmail,NormalizedUserName,PasswordHash,PhoneNumber,PhoneNumberConfirmed,Roles,SecurityStamp,TwoFactorEnabled,UserName")] IdentityRole user)
+        public async Task<IActionResult> Edit(string id, IdentityRole user)
         {
             if (id != user.Id)
             {
@@ -133,7 +131,6 @@ namespace FagElGamous.Controllers
             }
 
             var user = await _context.Users
-                .Include(c => c.Id)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
