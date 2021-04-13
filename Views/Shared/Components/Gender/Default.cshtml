@@ -1,9 +1,0 @@
-﻿@model IEnumerable<string>
-
-
-    <select>
-        @foreach (string x in Model)
-        {
-            <option asp-controller="Burial" asp-action="Index" asp-route-sex="@x">@x</option>
-        }
-    </select>

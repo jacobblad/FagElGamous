@@ -27,34 +27,6 @@ namespace FagElGamous.Controllers
             return View();
         }
 
-
-        public IActionResult MultiDatabase()
-        {
-            using (mummiesdbContext db = new mummiesdbContext())
-            {
-                List<Burial> burials = db.Burial.ToList();
-                List<Sample> samples = db.Sample.ToList();
-                List<C14> c14s = db.C14.ToList();
-                List<Cranial> cranials = db.Cranial.ToList();
-
-                var mummyRecord = from b in burials
-                                  join s in samples on b.BurialId equals s.BurialFk into table1
-                                  from s in table1.ToList()
-                                  join C in c14s on b.BurialId equals C.BurialFk into table2
-                                  from C in table2.ToList()
-                                      //join c in cranials on b.BurialId equals c.BurialFk into table3
-                                      //from c in table3.ToList()
-                                  select new ViewModel
-                                  {
-                                      burial = b,
-                                      sample = s,
-                                      c14 = C,
-                                      //cranial = c
-                                  };
-                return View(mummyRecord);
-            }
-        }
-
         public Burial GetTableField()
         {
             Burial testqfd = new Burial();
@@ -62,73 +34,6 @@ namespace FagElGamous.Controllers
             return testqfd;
         }
 
-        //[HttpPost, ValidateAntiForgeryToken]
-        //public IActionResult UserFiltering()
-        //{
-
-
-        //    string fieldName = model.FieldName;
-        //    string fieldValue = model.FieldValue;
-        //    string fieldName2 = model.FieldName2;
-        //    string fieldValue2 = model.FieldValue2;
-
-
-
-        //    using (mummiesdbContext db = new mummiesdbContext())
-        //    {
-        //        List<Burial> burials = db.Burial.ToList();
-
-        //        var mummyRecord = from filtered in burials
-        //                          where filtered.HairColorCode == fieldValue
-                                  
-        //                          //&& burials.($"{fieldName2}") == fieldValue2
-        //                          //For three field matching, add values 3?
-        //                          select new ViewModel
-        //                          {
-        //                              burial = filtered,
-        //                          };
-        //        return View(mummyRecord);
-        //    }
-
-
-
-
-
-        //    return Content($"This is your filter: {model.FieldName}. This is your value: {model.FieldValue}");
-        //}
-
-        //[HttpGet]
-        //public IActionResult UserFiltering()
-        //{
-
-        //    return View();
-        //}
-
-
-        //This is me trying to figure out how to get possible table data from filtering
-        //Two field matching
-        //[HttpPost]
-        //public IActionResult MultiDatabase(string? field1, string recordValue1, string? field2, string recordValue2)
-        ////For three field matching, maybe add field and record value 3? Maybe overload the method? And yes, the question marks mean I don't know if it is right.
-        //{
-        //    using (mummiesdbContext db = new mummiesdbContext())
-        //    {
-        //        List<Burial> burials = db.Burial.ToList();
-        //        List<Sample> samples = db.Sample.ToList();
-        //        List<C14> c14s = db.C14.ToList();
-        //        List<Cranial> cranials = db.Cranial.ToList();
-
-        //        var mummyRecord = from filtered in burials
-        //                          where burials.field1 == recordValue1
-        //                          && burials.field2 == recordValue2
-        //                          //For three field matching, add values 3?
-        //                          select new ViewModel
-        //                          {
-        //                              burial = filtered,
-        //                          };
-        //        return View(mummyRecord);
-        //    }
-        //}
 
         public IActionResult AllSites(/*int pageNum = 1*/)
         {
@@ -163,21 +68,6 @@ namespace FagElGamous.Controllers
         {
             return View();
         }
-
-
-        [HttpGet]
-        public IActionResult AddImage()
-        {
-            return View();
-        }
-
-        //[HttpPost]
-        //public IActionResult AddImage()
-        //{
-        //    return View();
-        //}
-
-
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
