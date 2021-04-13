@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
+@model IEnumerable<IdentityUser>;
+
+@{ 
+    ViewBag.Title = "All Users";
+}
+
+<div class="wrapper row3">
+    <section class="hoc container clear">
+        <div class="sectiontitle">
+            <p class="nospace font-xs">View all users</p>
+            <p class="heading underline font-x2">User Data</p>
+
+        </div>
+        <ul id="latest" class="nospace group">
+            <p>
+                <a class="btn btn-outline-light" asp-action="Create">Create New User</a>
+            </p>
+            <br />
+            <br />
+
+            @foreach (var item in Model)
+            {
+                <li class="">
+                    <article>
+                        <div class="excerpt">
+                            <h6 class="heading">@Html.DisplayFor(modelItem => item.Id)</h6>
+                            <p>Estimated Age of Carbon Dated Sample: @Html.DisplayFor(modelItem => item.Email) years</p>
+                            <footer><a class="btn" asp-action="Details" asp-route-id="@item.Id">See More</a></footer>
+                        </div>
+                    </article>
+                </li>
+                <br />
+            }
+        </ul>
+    </section>
+</div>
