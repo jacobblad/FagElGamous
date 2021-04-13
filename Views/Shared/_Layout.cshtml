@@ -23,7 +23,7 @@ Licence URI: https://www.os-templates.com/template-terms
 </head>
 <body id="top">
     <!-- Top Background Image Wrapper -->
-    <div class="bgded overlay" style="background-color: darkblue;">
+    <div class="bgded overlay" style="background-color: #003973;">
         <div class="wrapper row0">
             <div id="topbar" class="hoc clear">
                 <div class="fl_left">
@@ -72,8 +72,11 @@ Licence URI: https://www.os-templates.com/template-terms
                         <li><a asp-area="" asp-controller="C14" asp-action="Index">C14</a></li>
                         <li><a asp-area="" asp-controller="Cranials" asp-action="Index">Cranial</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="AllSites">View Burial Sites</a></li>
-                        <li><a asp-area="" asp-controller="Secret" asp-action="Index">Secrets</a></li>
-                        <li><a asp-area="" asp-controller="Role" asp-action="Index">Secrets</a></li>
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "admin")).Succeeded)
+                        {
+                            <li><a asp-area="" asp-controller="Admin" asp-action="Index">Manage Users</a></li>
+                        }
+                        
 
                         <!--<li>
     <a class="drop" asp-area="" asp-controller="Home" asp-action="AccountInfo">Account</a>
@@ -90,14 +93,14 @@ Licence URI: https://www.os-templates.com/template-terms
 
 
         <div class="container">
-            <main role="main" class="pb-3">
+            <main role="main" class="pb-3"">
                 @RenderBody()
             </main>
         </div>
 
     </div>
 
-    <div class="bgded overlay row4" style="background-color: darkblue;">
+    <div class="bgded overlay row4" style="background-color: #003973;">
         <footer id="footer" class="hoc clear">
             <div id="ctdetails" class="clear">
                 <ul class="nospace clear">
