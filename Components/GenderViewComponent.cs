@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace FagElGamous.Components
 {
-    public class FilterViewComponent : ViewComponent
+    public class GenderViewComponent : ViewComponent
     {
         private mummiesdbContext context;
-        public FilterViewComponent(mummiesdbContext con)
+        public GenderViewComponent(mummiesdbContext con)
         {
             context = con;
         }
@@ -21,6 +21,7 @@ namespace FagElGamous.Components
             return View(context.Burial
                 .Select(x => x.GenderGe)
                 .Distinct()
+                .Skip(2)
                 .OrderBy(x => x)
                 .ToList()); //returns the default view that corresponse to this componet
         }

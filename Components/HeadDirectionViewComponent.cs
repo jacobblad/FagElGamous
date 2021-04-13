@@ -7,18 +7,22 @@ using System.Threading.Tasks;
 
 namespace FagElGamous.Components
 {
-    public class FilteringViewComponent : ViewComponent
+    public class HeadDirectionViewComponent : ViewComponent 
     {
         private mummiesdbContext context;
-        public FilteringViewComponent(mummiesdbContext ctx)
+        public HeadDirectionViewComponent(mummiesdbContext con)
         {
-            context = ctx;
+            context = con;
         }
+
         public IViewComponentResult Invoke()
         {
+            //filters so it grabs the list of gender types
             return View(context.Burial
+                .Select(x => x.HeadDirection)
                 .Distinct()
-                .OrderBy(x => x));
+                .OrderBy(x => x.Length)
+                .ToList()); //returns the default view that corresponse to this componet
         }
     }
 }

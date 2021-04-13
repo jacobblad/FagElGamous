@@ -62,46 +62,47 @@ namespace FagElGamous.Controllers
             return testqfd;
         }
 
-        [HttpPost, ValidateAntiForgeryToken]
-        public IActionResult UserFiltering(Filter model)
-        {
+        //[HttpPost, ValidateAntiForgeryToken]
+        //public IActionResult UserFiltering()
+        //{
 
 
-            string fieldName = model.FieldName;
-            string fieldValue = model.FieldValue;
-            string fieldName2 = model.FieldName2;
-            string fieldValue2 = model.FieldValue2;
+        //    string fieldName = model.FieldName;
+        //    string fieldValue = model.FieldValue;
+        //    string fieldName2 = model.FieldName2;
+        //    string fieldValue2 = model.FieldValue2;
 
 
 
-            using (mummiesdbContext db = new mummiesdbContext())
-            {
-                List<Burial> burials = db.Burial.ToList();
+        //    using (mummiesdbContext db = new mummiesdbContext())
+        //    {
+        //        List<Burial> burials = db.Burial.ToList();
 
-                var mummyRecord = from filtered in burials
-                                  where filtered.HairColorCode == fieldValue
+        //        var mummyRecord = from filtered in burials
+        //                          where filtered.HairColorCode == fieldValue
                                   
-                                  //&& burials.($"{fieldName2}") == fieldValue2
-                                  //For three field matching, add values 3?
-                                  select new ViewModel
-                                  {
-                                      burial = filtered,
-                                  };
-                return View(mummyRecord);
-            }
+        //                          //&& burials.($"{fieldName2}") == fieldValue2
+        //                          //For three field matching, add values 3?
+        //                          select new ViewModel
+        //                          {
+        //                              burial = filtered,
+        //                          };
+        //        return View(mummyRecord);
+        //    }
 
 
 
 
 
-            return Content($"This is your filter: {model.FieldName}. This is your value: {model.FieldValue}");
-        }
-        [HttpGet]
-        public IActionResult UserFiltering()
-        {
+        //    return Content($"This is your filter: {model.FieldName}. This is your value: {model.FieldValue}");
+        //}
 
-            return View();
-        }
+        //[HttpGet]
+        //public IActionResult UserFiltering()
+        //{
+
+        //    return View();
+        //}
 
 
         //This is me trying to figure out how to get possible table data from filtering

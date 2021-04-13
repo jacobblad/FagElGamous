@@ -1,0 +1,12 @@
+﻿@model IEnumerable<String>
+
+
+<label>Select a Gender</label>
+<select name="gender" id="gender">
+    @foreach (string x in Model)
+    {
+        <option value="@x" >@x</option>
+    }
+</select>
+
+
