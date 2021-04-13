@@ -17,27 +17,30 @@
         </div>
         <ul id="latest" class="nospace group">
             <p>
-                <a class="btn btn-outline-light" asp-action="Create">Create New Record</a>
+                @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
+                {
+                    <a class="btn btn-outline-light" asp-action="Create">Create New Record</a>
+                }
             </p>
             <br />
             <br />
 
-    @foreach (var item in Model.Burials)
-    {
-        <li class="">
-            <article>
-                <div class="excerpt">
-                    <h6 class="heading">@Html.DisplayFor(modelItem => item.BurialLocation)</h6>
-                    <p>Sex: @Html.DisplayFor(modelItem => item.GenderBodyCol)</p>
-                    <p>Hair Color: @Html.DisplayFor(modelItem => item.HairColorDescription)</p>
-                    <p>Age: @Html.DisplayFor(modelItem => item.EstimateAge)</p>
-                    <footer><a class="btn" asp-action="Details" asp-route-id="@item.BurialId">See More</a></footer>
-                </div>
-            </article>
-        </li>
-        <br />
-    }
-    </ul>
+                @foreach (var item in Model.Burials)
+                {
+                    <li class="">
+                        <article>
+                            <div class="excerpt">
+                                <h6 class="heading">@Html.DisplayFor(modelItem => item.BurialLocation)</h6>
+                                <p>Sex: @Html.DisplayFor(modelItem => item.GenderBodyCol)</p>
+                                <p>Hair Color: @Html.DisplayFor(modelItem => item.HairColorDescription)</p>
+                                <p>Age: @Html.DisplayFor(modelItem => item.EstimateAge)</p>
+                                <footer><a class="btn" asp-action="Details" asp-route-id="@item.BurialId">See More</a></footer>
+                            </div>
+                        </article>
+                    </li>
+                    <br />
+                }
+            </ul>
     </section>
     <nav class="pagination">
         <ul page-info="@Model.PagingInfo"
