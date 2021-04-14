@@ -24,6 +24,8 @@ COLORS:
 }
 
 body {
+    width: 100%;
+    overflow: visible;
     font-family: 'Roboto', sans-serif;
     /*grid-template-rows: 3em 1fr 10em;*/
     grid-template-columns: 3em 1fr 10em;
@@ -43,6 +45,7 @@ header {
 }
 
 main {
+    overflow-y: hidden;
     grid-area: main;
     /*padding-top: 1em;*/
     width: 60em;
