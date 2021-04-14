@@ -27,34 +27,6 @@ namespace FagElGamous.Controllers
             return View();
         }
 
-
-        public IActionResult MultiDatabase()
-        {
-            using (mummiesdbContext db = new mummiesdbContext())
-            {
-                List<Burial> burials = db.Burial.ToList();
-                List<Sample> samples = db.Sample.ToList();
-                List<C14> c14s = db.C14.ToList();
-                List<Cranial> cranials = db.Cranial.ToList();
-
-                var mummyRecord = from b in burials
-                                  join s in samples on b.BurialId equals s.BurialFk into table1
-                                  from s in table1.ToList()
-                                  join C in c14s on b.BurialId equals C.BurialFk into table2
-                                  from C in table2.ToList()
-                                      //join c in cranials on b.BurialId equals c.BurialFk into table3
-                                      //from c in table3.ToList()
-                                  select new ViewModel
-                                  {
-                                      burial = b,
-                                      sample = s,
-                                      c14 = C,
-                                      //cranial = c
-                                  };
-                return View(mummyRecord);
-            }
-        }
-
         public Burial GetTableField()
         {
             Burial testqfd = new Burial();
@@ -62,72 +34,6 @@ namespace FagElGamous.Controllers
             return testqfd;
         }
 
-        //[HttpPost, ValidateAntiForgeryToken]
-        //public IActionResult UserFiltering(string haircolorcode)
-        //{
-
-
-            
-
-
-
-        //    using (mummiesdbContext db = new mummiesdbContext())
-        //    {
-        //        List<Burial> burials = db.Burial.ToList();
-
-        //        var mummyRecord = from filtered in burials
-        //                          where filtered.HairColorCode == haircolorcode
-                                  
-        //                          //&& burials.($"{fieldName2}") == fieldValue2
-        //                          //For three field matching, add values 3?
-        //                          select new ViewModel
-        //                          {
-        //                              burial = filtered,
-        //                          };
-        //        return View(mummyRecord);
-        //    }
-
-
-
-
-
-        //    return Content($"This is your filter: {model.FieldName}. This is your value: {model.FieldValue}");
-        //}
-        [HttpGet]
-        public IActionResult UserFiltering(string haircolorcode)
-        {
-
-            return View(/*_context.Burial
-                .Distinct()
-                .Where(x => x.HairColorCode == haircolorcode)
-                .OrderBy(x => x)*/);
-        }
-
-
-        //This is me trying to figure out how to get possible table data from filtering
-        //Two field matching
-        //[HttpPost]
-        //public IActionResult MultiDatabase(string? field1, string recordValue1, string? field2, string recordValue2)
-        ////For three field matching, maybe add field and record value 3? Maybe overload the method? And yes, the question marks mean I don't know if it is right.
-        //{
-        //    using (mummiesdbContext db = new mummiesdbContext())
-        //    {
-        //        List<Burial> burials = db.Burial.ToList();
-        //        List<Sample> samples = db.Sample.ToList();
-        //        List<C14> c14s = db.C14.ToList();
-        //        List<Cranial> cranials = db.Cranial.ToList();
-
-        //        var mummyRecord = from filtered in burials
-        //                          where burials.field1 == recordValue1
-        //                          && burials.field2 == recordValue2
-        //                          //For three field matching, add values 3?
-        //                          select new ViewModel
-        //                          {
-        //                              burial = filtered,
-        //                          };
-        //        return View(mummyRecord);
-        //    }
-        //}
 
         public IActionResult AllSites(/*int pageNum = 1*/)
         {
@@ -147,16 +53,6 @@ namespace FagElGamous.Controllers
                 },
             });*/
         }
-        public IActionResult DisplaySamples(int burialid)
-        {
-
-            /*select the sample data from the table that is the Join of the sample data table on the burial table 
-              where the sample's burialId matches the burial table's Id. */
-            
-            return View(_context.Sample
-                .Where(x => x.BurialFk == burialid || burialid == null)
-                .OrderBy(x => x.SampleId));
-        }
 
         public IActionResult AccountInfo()
         {
@@ -172,21 +68,6 @@ namespace FagElGamous.Controllers
         {
             return View();
         }
-
-
-        [HttpGet]
-        public IActionResult AddImage()
-        {
-            return View();
-        }
-
-        //[HttpPost]
-        //public IActionResult AddImage()
-        //{
-        //    return View();
-        //}
-
-
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
