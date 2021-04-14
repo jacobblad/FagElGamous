@@ -18,7 +18,7 @@ namespace FagElGamous.Areas.Identity
             builder.ConfigureServices((context, services) =>
             {
                 services.AddDbContext<FagElGamousContext>(options =>
-                    options.UseSqlite(
+                    options.UseSqlServer(
                         context.Configuration.GetConnectionString("FagElGamousContextConnection")));
 
                 services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)

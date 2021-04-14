@@ -13,10 +13,12 @@
             <p class="nospace font-xs">Explore different biological samples we have in our lab</p>
             <p class="heading underline font-x2">Biological Samples</p>
             <br />
-            
         </div>
         <p>
-            <a class="btn btn-outline-light" asp-action="Create">Create New Record</a>
+            @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
+            {
+                <a class="btn btn-outline-light" asp-action="Create">Create New Record</a>
+            }
         </p><br /><br />
 
 
