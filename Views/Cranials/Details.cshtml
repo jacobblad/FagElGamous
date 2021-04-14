@@ -17,7 +17,7 @@
 </tr>
 
 <tr>
-    <td style="color:black;">@Html.DisplayNameFor(model => model.BurialNumber</td>
+    <td style="color:black;">@Html.DisplayNameFor(model => model.BurialNumber)</td>
     <td>
         <button type="button" class="collabsible btn">Burial Location</button>
         <div class="content">
@@ -78,7 +78,7 @@
             <a class="btn btn-outline-dark" asp-action="Edit" asp-route-id="@Model.CranialId">Edit</a><a> </a>
         }
         <a class="btn btn-outline-dark" asp-action="Index">Back to List</a>
-        @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
+        @if ((await AuthorizationService.AuthorizeAsync(User, "admin")).Succeeded)
         {
             <br /><a asp-action="Delete" asp-route-id="@Model.CranialId">Delete</a><a> </a>
         }
