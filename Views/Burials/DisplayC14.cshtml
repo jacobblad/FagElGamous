@@ -5,24 +5,37 @@
 }
 else
 {
-    @foreach (var x in Model)
-    {
-        <p>Location Sample Taken From: @x.BurialLocation</p>
-        <p>Location Description: @x.Location</p>
-        <p>Sample Notes: @x.Description</p>
-        <p>Questions: @x.QuestionS</p>
-        <p>Conventional 14C age BP # @x.Conventional14cAgeBp</p>
-        <p>Column 14C Calendar Date: @x.Column14cCalendarDate</p>
-        <p>Calibrated 95 Calendar Date Min: @x.Calibrated95CalendarDateMin</p>
-        <p>Conventional 14C age BP # @x.Calibrated95CalendarDateMax</p>
-        <p>Conventional 14C age BP # @x.Calibrated95CalendarDateAvg</p>
-        <p>Conventional 14C age BP # @x.Calibrated95CalendarDateSpan</p>
-        <p>Rack # @x.Rack</p>
-        <p>Tube # @x.Tube</p>
-        <p>Size: @x.SizeMl mm</p>
-        <p>Foci: @x.Foci</p>
-        <p>Category: @x.Category</p>
-        <p>Lab Notes: @x.Notes</p>
-    }
+    <section class="hoc container clear">
+        <ul id="latest" class="nospace group">
+            @foreach (var x in Model)
+            {
+                <li class="">
+                    <article>
+                        <div class="excerpt">
+                            <h6 style="color:#FBAB45" class="heading">Location Sample Taken From: @Html.DisplayFor(modelItem => x.BurialLocation)</h6>
+                            <p>Location Description: @x.Location</p>
+                            <p>Sample Notes: @x.Description</p>
+                            <p>Questions: @x.QuestionS</p>
+                            <p>Conventional 14C age BP # @x.Conventional14cAgeBp</p>
+                            <p>Column 14C Calendar Date: @x.Column14cCalendarDate</p>
+                            <p>Calibrated 95 Calendar Date Min: @x.Calibrated95CalendarDateMin</p>
+                            <p>Conventional 14C age BP # @x.Calibrated95CalendarDateMax</p>
+                            <p>Conventional 14C age BP # @x.Calibrated95CalendarDateAvg</p>
+                            <p>Conventional 14C age BP # @x.Calibrated95CalendarDateSpan</p>
+                            <p>Rack # @x.Rack</p>
+                            <p>Tube # @x.Tube</p>
+                            <p>Size: @x.SizeMl mm</p>
+                            <p>Foci: @x.Foci</p>
+                            <p>Category: @x.Category</p>
+                            <p>Lab Notes: @x.Notes</p>
+                        </div>
+                    </article>
+                </li>
+                <br />
+                <br />
+            }
+        </ul>
+    </section>
+
 }
 
