@@ -26,7 +26,8 @@
             <td>@user.Id</td>
             <td>@user.Email</td>
             <td>
-                <button asp-action="EditUser" asp-controller="Administration" asp-route-id="@user.Id" type="button" class="btn">Edit</button>
+                <a asp-action="EditUser" asp-controller="Administration" asp-route-id="@user.Id" type="button" class="btn">Edit</a>
+
                 <button type="button" class="btn">Delete</button>
 
             </td>
