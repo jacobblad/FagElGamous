@@ -5,18 +5,23 @@
 }
 
 @model FagElGamous.Models.ViewModels.ListViewModel
-
 @*Pagination for when we get DB set up*@
 @*@foreach (var x in Model.Sites)
-{
-    <partial name="Sites" model="x" />
-}
+    {
+        <partial name="Sites" model="x" />
+    }
 
-<div page-model="@Model.Paginginfo" page-action="Index" page-classes-enabled="true" page-class="btn"
-     page-class-normal="btn-outline-dark"
-     page-class-selected="btn-primary"
-     class="btn-group pull-right m-1">
-</div>*@
+    <div page-model="@Model.Paginginfo" page-action="Index" page-classes-enabled="true" page-class="btn"
+         page-class-normal="btn-outline-dark"
+         page-class-selected="btn-primary"
+         class="btn-group pull-right m-1">
+    </div>*@
+
+<form action="/action_page.php">
+    <input class="btn" type="file" id="myFile" name="filename">
+    <input type="submit" class="btn">
+</form>
+
 
 <div class="wrapper row3">
     <main class="hoc container clear">
@@ -42,45 +47,6 @@
                     <figcaption>Gallery Description Goes Here</figcaption>
                 </figure>
             </div>
-
-            <!--
-                    cards instead?
-                    <div class="job-listings-cards">
-    {%for job in jobs %}
-        <div class="job-listings-card">
-            <a href={%url 'jobinfo' jobID=job.id applicantID=applicantID%}>
-                <div class="image-wrapper">
-                <img src="" style="width:300px;height:300px">
-                </div>
-                <h3></h3>
-                <h2></h2>
-
-            </a>
-        </div>
-        {% if forloop.counter|divisibleby:4 %}
-        </div>
-        <div class="job-listings-cards">
-        {% endif %}
-        {% endfor %}
-    </div>-->
-
-
-            <nav class="pagination">
-                <ul>
-                    <li><a href="#">&laquo; Previous</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><strong>&hellip;</strong></li>
-                    <li><a href="#">6</a></li>
-                    <li class="current"><strong>7</strong></li>
-                    <li><a href="#">8</a></li>
-                    <li><a href="#">9</a></li>
-                    <li><strong>&hellip;</strong></li>
-                    <li><a href="#">14</a></li>
-                    <li><a href="#">15</a></li>
-                    <li><a href="#">Next &raquo;</a></li>
-                </ul>
-            </nav>
         </div>
         <!-- / main body -->
         <div class="clear"></div>
