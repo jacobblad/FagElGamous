@@ -60,7 +60,7 @@ namespace FagElGamous
         }
 
         [AutoValidateAntiforgeryToken]
-        // GET Filter
+        // post Filter
         public IActionResult Filter(string? gender, string? directionhead, string? haircolor, string? agerange, int pageNum =1)
         {
             int pageSize = 17;
