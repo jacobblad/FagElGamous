@@ -59,6 +59,7 @@ namespace FagElGamous
             });        
         }
 
+        [AutoValidateAntiforgeryToken]
         // GET Filter
         public IActionResult Filter(string? gender, string? directionhead, string? haircolor, string? agerange, int pageNum =1)
         {
