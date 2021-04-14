@@ -1,0 +1,479 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model FagElGamous.Models.Burial
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = null;
+    //Layout = "~/Views/Shared/_SecretLayout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<!--
+Template Name: Sislaf
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Copyright: OS-Templates.com
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+    <title>Archaeology</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="~/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/css/animate-custom.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/css/demo.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body id="top">
+    <!-- Top Background Image Wrapper -->
+    <div class="bgded overlay" style="background-color: #003973;">
+        <div class="wrapper row0">
+            <div id="topbar" class="hoc clear">
+                <div class="fl_left">
+                    <ul class="nospace">
+                        <li><i class="fas fa-phone rgtspace-5"></i> (801) 422-3058</li>
+                        <li><i class="far fa-envelope rgtspace-5"></i> archeology@byu.edu</li>
+                    </ul>
+                </div>
+
+                <div class="fl_right">
+                    <partial name="_LoginPartial" />
+                    @*<ul class="nospace">
+                            <li><a asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i></a></li>
+                            <li><a href="#" title="Help Centre"><i class="far fa-life-ring"></i></a></li>
+                            <li><a asp-controller="Home" asp-action="Login" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+                            <li><a href="#" title="Sign Up"><i class="fas fa-edit"></i></a></li>
+                            <li id="searchform">
+                                <div>
+                                    <form action="#" method="post">
+                                        <fieldset>
+                                            <legend>Quick Search:</legend>
+                                            <input type="text" placeholder="Enter search term&hellip;">
+                                            <button type="submit"><i class="fas fa-search"></i></button>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>*@
+                </div>
+            </div>
+        </div>
+        <div class="wrapper row1">
+            <header id="header" class="hoc clear">
+                <div id="logo" class="fl_left">
+                    <h1><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></h1>
+                </div>
+                <nav id="mainav" class="fl_right">
+                    <ul class="clear">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+
+                        <li><a asp-area="" asp-controller="Burials" asp-action="Index">Mummy Archive</a></li>
+                        <li><a asp-area="" asp-controller="Samples" asp-action="Index">Sample</a></li>
+                        <li><a asp-area="" asp-controller="C14" asp-action="Index">C14</a></li>
+                        <li><a asp-area="" asp-controller="Cranials" asp-action="Index">Cranial</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="AllSites">View Burial Sites</a></li>
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "admin")).Succeeded)
+                        {
+                            <li><a asp-area="" asp-controller="Administration" asp-action="ListUsers">Manage Users</a></li>
+                        }
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
+                        {
+                            <li><a asp-area="" asp-controller="Burials" asp-action="Create">On Site Data Entry</a></li>
+                        }
+
+
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+
+        <div class="wrapper row3">
+            <section class="hoc container clear">
+                <div class="sectiontitle">
+                    <p class="heading underline font-x2">Details for Record @Model.BurialLocation</p>
+                    <br />
+                </div>
+                    <button type="button" class="collapsible">Location Data</button>
+                    <div class="content">
+                        <p style="color:black;">@Html.DisplayFor(model => model.BurialLocation)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BurialLocation)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BurialLocationNs)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BurialLocationNs)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BurialLocationEw)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BurialLocationEw)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.AreaHillBurials)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.AreaHillBurials)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.PoroticHyperostosisLocation)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.PoroticHyperostosisLocation)</p>
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.HighPairNs)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.HighPairNs)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.HighPairEw)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.HighPairEw)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.LowPairNs)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.LowPairNs)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.LowPairEw)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.LowPairEw)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.HeadDirection)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.HeadDirection)</p>
+                        <p>style="color:black;">@Html.DisplayNameFor(model => model.BurialSubplot)</p>
+
+
+                    </div>
+
+                    <button type="button" class="collapsible">Mummy Characteristics</button>
+                    <div class="content">
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.EstimateAge)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.EstimateAge)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.AgeCode)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.AgeCode)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.EstimateLivingStature)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.EstimateLivingStature)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.Burialagemethod)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.Burialagemethod)</p>
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BurialPreservation)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BurialPreservation)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BurialWrapingCode)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BurialWrapingCode)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BurialAdultChild)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BurialAdultChild)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.Burialagemethod)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.Burialagemethod)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BurialWrapingCode)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BurialWrapingCode)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.Tomb)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.Tomb)</p>
+                        <p>style="color:black;">@Html.DisplayFor(model => model.GenderBodyCol)</p>
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.YearFound)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.YearFound)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.MonthFound)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.MonthFound)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.DayFound)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.DayFound)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.YearOnSkull)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.YearOnSkull)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.MonthOnSkull)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.MonthOnSkull)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.DateOnSkull)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.DateOnSkull)</p>
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.SampleNumber)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.SampleNumber)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.HairTaken)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.HairTaken)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.SoftTissueTaken)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.SoftTissueTaken)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BoneTaken)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BoneTaken)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.ToothTaken)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.ToothTaken)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.TextileTaken)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.TextileTaken)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.DescriptionOfTaken)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.DescriptionOfTaken)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BurialSampleTaken)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BurialSampleTaken)</p>
+                    </div>
+
+                    <button type="button" class="collapsible">Bones Details</button>
+                    <div class="content">
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BasilarSuture)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BasilarSuture)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.VentralArc)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.VentralArc)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.SubpubicAngle)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.SubpubicAngle)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.SciaticNotch)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.SciaticNotch)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.PubicBone)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.PubicBone)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.PreaurSulcus)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.PreaurSulcus)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.MedialIpRamus)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.MedialIpRamus)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.DorsalPitting)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.DorsalPitting)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.ForemanMagnum)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.ForemanMagnum)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.FemurHead)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.FemurHead)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.HumerusHead)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.HumerusHead)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.Osteophytosis)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.Osteophytosis)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.PubicSymphysis)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.PubicSymphysis)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.Robust)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.Robust)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.SupraorbitalRidges)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.SupraorbitalRidges)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.OrbitEdge)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.OrbitEdge)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.ParietalBossing)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.ParietalBossing)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.Gonian)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.Gonian)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.NuchalCrest)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.NuchalCrest)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.ZygomaticCrest)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.ZygomaticCrest)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.CranialSuture)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.CranialSuture)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.NuchalCrest)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.NuchalCrest)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.SkullTrama)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.SkullTrama)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.CribraOrbitala)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.CribraOrbitala)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.PoroticHyperostosis)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.PoroticHyperostosis)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.MetopicStructure)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.MetopicStructure)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.ButtonOsteoma)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.ButtonOsteoma)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.PostcraniaTrauma)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.PostcraniaTrauma)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.TemporalMandibularJoinOsteoarthritis)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.TemporalMandibularJoinOsteoarthritis)</p>
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.FemurLength)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.FemurLength)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.HumerusLength)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.HumerusLength)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.TibiaLength)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.TibiaLength)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.MaximumCranialLength)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.MaximumCranialLength)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.MaximumCranialBreadth)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.MaximumCranialBreadth)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BasionBregmaHeight)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BasionBregmaHeight)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BasionNasion)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BasionNasion)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BasionProsthionLength)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BasionProsthionLength)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BizygomaticDiameter)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BizygomaticDiameter)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.BasionBregmaHeight)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.BasionBregmaHeight)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.MaximumNasalBreadth)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.MaximumNasalBreadth)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.InterorbitalBreadth)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.InterorbitalBreadth)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.NuchalCrest)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.NuchalCrest)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.LengthOfRemains)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.LengthOfRemains)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.ToothTaken)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.ToothTaken)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.ToothAttrition)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.ToothAttrition)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.ToothEruption)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.ToothEruption)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.ToothTaken)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.ToothTaken)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.TextileTaken)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.TextileTaken)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.LinearHypoplasiaEnamel)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.LinearHypoplasiaEnamel)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.DescriptionOfTaken)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.DescriptionOfTaken)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.HairColorCode)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.HairColorCode)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.HairColorDescription)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.HairColorDescription)</p>
+
+                        <p style="color:black;">@Html.DisplayNameFor(model => model.HairTaken)</p>
+                        <p style="color:black;">@Html.DisplayFor(model => model.HairTaken)</p>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+            </section>
+        </div>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <div class="bgded overlay row4" style="background-color: #003973;">
+            <footer id="footer" class="hoc clear">
+                <div id="ctdetails" class="clear">
+                    <ul class="nospace clear">
+                        <li class="one_quarter first">
+                            <div class="block clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Give us a call:</strong> (801) 422-3058</span></div>
+                        </li>
+                        <li class="one_quarter">
+                            <div class="block clear"><a href="#"><i class="fas fa-envelope"></i></a> <span><strong>Send us an email:</strong> archaeology@byu.edu</span></div>
+                        </li>
+                        <li class="one_quarter">
+                            <div class="block clear"><a href="#"><i class="fas fa-clock"></i></a> <span><strong> Monday - Saturday:</strong> 9.00am - 5.00pm MDT</span></div>
+                        </li>
+                        <li class="one_quarter">
+                            <div class="block clear"><a href="#"><i class="fas fa-map-marker-alt"></i></a> <span><strong>Come visit us:</strong> Directions to <a href="https://www.google.com/maps/dir/40.2463985,-111.6541482/byu+archaeology+department/40.2471172,-111.654924,17z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x874d90ba874c549f:0x5b30a0a9081564fb!2m2!1d-111.6510826!2d40.2473775">our location</a></span></div>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+        <div class="wrapper row5">
+            <div id="copyright" class="hoc clear">
+                <p class="fl_left">Copyright &copy; 2021 - All Rights Reserved - <a href="#">BYU Egypt Excavation Project - Fag el-Gamous Cemetery Database</a></p>
+            </div>
+        </div>
+        <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+        <!-- JAVASCRIPTS -->
+        <script src="layout/scripts/jquery.min.js"></script>
+        <script src="layout/scripts/jquery.backtotop.js"></script>
+        <script src="layout/scripts/jquery.mobilemenu.js"></script>
+
+
+</body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<style>
+    .collapsible {
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+    }
+
+        .active, .collapsible:hover {
+            background-color: #FBAB45;
+        }
+
+    .content {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        background-color: white;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+
+    label {
+        float: left;
+    }
+</style>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>
