@@ -5,121 +5,105 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<table id="applicant-info-table">
+    <tr>
+        <th>Burial</th>
+        <th>Burial Location</th>
+        <th>Details</th>
+        <th>Category</th>
+        <th>Notes</th>
+    </tr>
 
-<div>
-    <h4>C14</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.BurialLocation): @Html.DisplayFor(model => model.BurialLocation)
-        </dt>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Rack): @Html.DisplayFor(model => model.Rack)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NS): @Html.DisplayFor(model => model.NS)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Column6): @Html.DisplayFor(model => model.Column6)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EW): @Html.DisplayFor(model => model.EW)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Column8): @Html.DisplayFor(model => model.Column8)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Square): @Html.DisplayFor(model => model.Square)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Area): @Html.DisplayFor(model => model.Area)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Burial): @Html.DisplayFor(model => model.Burial)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Rack1): @Html.DisplayFor(model => model.Rack1)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Tube): @Html.DisplayFor(model => model.Tube)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.SizeMl): @Html.DisplayFor(model => model.SizeMl)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Foci): @Html.DisplayFor(model => model.Foci)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.C14Sample2017): @Html.DisplayFor(model => model.C14Sample2017)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(model => model.Location)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.QuestionS): @Html.DisplayFor(model => model.QuestionS)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Column20): @Html.DisplayFor(model => model.Column20)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Conventional14cAgeBp): @Html.DisplayFor(model => model.Conventional14cAgeBp)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Column14cCalendarDate): @Html.DisplayFor(model => model.Column14cCalendarDate)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Calibrated95CalendarDateMax): @Html.DisplayFor(model => model.Calibrated95CalendarDateMax)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Calibrated95CalendarDateMin): @Html.DisplayFor(model => model.Calibrated95CalendarDateMin)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Calibrated95CalendarDateSpan): @Html.DisplayFor(model => model.Calibrated95CalendarDateSpan)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Calibrated95CalendarDateAvg): @Html.DisplayFor(model => model.Calibrated95CalendarDateAvg)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Category): @Html.DisplayFor(model => model.Category)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Notes): @Html.DisplayFor(model => model.Notes)
-        </dt>
-        
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.BurialFkNavigation): @Html.DisplayFor(model => model.BurialFkNavigation.BurialId)
-        </dt>
-        
-    </dl>
-</div>
+    <tr>
+        <td style="color:black;">@Html.DisplayFor(model => model.Burial)</td>
+        <td>
+            <button type="button" class="collabsible btn">Burial Location</button>
+            <div class="content">
+                <p style="color:black;">@Html.DisplayNameFor(model => model.BurialLocation)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.BurialLocation)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Location)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Location)</p>
+            </div>
+        </td>
+        <td>
+            <button type="button" class="collabsible btn">Details</button>
+            <div class="content">
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Rack)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Rack)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.NS)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.NS)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Column6)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Column6)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.EW)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.EW)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Column8)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Column8)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Square)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Square)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Area)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Area)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Rack1)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Rack1)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Tube)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Tube)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Description)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Description)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.SizeMl)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.SizeMl)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Foci)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Foci)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.C14Sample2017)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.C14Sample2017)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.QuestionS)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.QuestionS)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Column20)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Column20)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Conventional14cAgeBp)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Conventional14cAgeBp)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Calibrated95CalendarDateMax)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Calibrated95CalendarDateMax)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Column14cCalendarDate)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Column14cCalendarDate)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Calibrated95CalendarDateMin)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Calibrated95CalendarDateMin)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Column14cCalendarDate)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Column14cCalendarDate)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Calibrated95CalendarDateSpan)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Calibrated95CalendarDateSpan)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.Calibrated95CalendarDateAvg)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.Calibrated95CalendarDateAvg)</p>
+
+                <p style="color:black;">@Html.DisplayNameFor(model => model.BurialFkNavigation.BurialId)</p>
+                <p style="color:black;">@Html.DisplayFor(model => model.BurialFkNavigation.BurialId)</p>
+            </div>
+        </td>
+        <td style="color:black;">@Html.DisplayFor(model => model.Category)</td>
+        <td style="color:black;">@Html.DisplayFor(model => model.Notes)</td>
+
+    </tr>
+</table>
 <div>
     @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
     {
@@ -131,3 +115,21 @@
         <br /><a asp-action="Delete" asp-route-id="@Model.C14Id">Delete</a><a> </a>
     }
 </div>
+
+<script>
+    var coll = document.getElementsByClassName("collabsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>
+
