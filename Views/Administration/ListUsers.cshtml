@@ -19,7 +19,7 @@
             @foreach (var user in Model)
             {
         <tr>
-            <td>@user.Id</td>
+            <td class="text-dark">@user.Id</td>
             <td>@user.Email</td>
             <td>
                 <a asp-action="EditUser" asp-controller="Administration" asp-route-id="@user.Id" type="button" class="btn">Edit</a>
