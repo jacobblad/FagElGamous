@@ -75,7 +75,7 @@ Licence URI: https://www.os-templates.com/template-terms
                             <li><a asp-area="" asp-controller="Administration" asp-action="ListUsers">Manage Users</a></li>}
                         @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
                         {
-                            <li><a asp-area="" asp-controller="Burial" asp-action="Create">On Site Data Entry</a></li>
+                            <li><a asp-area="" asp-controller="Burials" asp-action="Create">On Site Data Entry</a></li>
                         }
 
 

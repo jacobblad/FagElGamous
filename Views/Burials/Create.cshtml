@@ -84,7 +84,7 @@ Licence URI: https://www.os-templates.com/template-terms
                         }
                         @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
                         {
-                            <li><a asp-area="" asp-controller="Burial" asp-action="Create">On Site Data Entry</a></li>
+                            <li><a asp-area="" asp-controller="Burials" asp-action="Create">On Site Data Entry</a></li>
                         }
 
 
@@ -337,7 +337,7 @@ Licence URI: https://www.os-templates.com/template-terms
 
 
                     </div>
-                    <button type="button" class="collapsible">Bones Details</button>
+                    <button type="button" class="collapsible">Input Bones Details</button>
                     <div class="content">
                         <label asp-for="BasilarSuture" class="control-label"></label>
                         <input asp-for="BasilarSuture" class="form-control" />
@@ -444,29 +444,6 @@ Licence URI: https://www.os-templates.com/template-terms
                         <input type="submit" value="Create" class="btn btn-primary" />
                     </div>
                 </form>
-
-
-
-
-                @*<form asp-action="Create">
-
-                    <label asp-for="BurialLocationNs" class="control-label"></label>
-                    <input asp-for="BurialLocationNs" class="form-control" />
-                    <br />
-                    <label asp-for="BurialLocationEw" class="control-label"></label>
-                    <input asp-for="BurialLocationEw" class="form-control" />
-                    <br />
-                    <label asp-for="LowPairNs" class="control-label"></label>
-                    <input asp-for="LowPairNs" class="form-control" />
-                    <br />
-                    <label asp-for="HighPairNs" class="control-label"></label>
-                    <input asp-for="HighPairNs" class="form-control" />
-                    <br />
-
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
-                    </div>
-                </form>*@
             </section>
         </div>
 
