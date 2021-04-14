@@ -2,7 +2,7 @@
 
 namespace FagElGamous.Data.Migrations
 {
-    public partial class auth : Migration
+    public partial class deployed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -94,8 +94,8 @@ namespace FagElGamous.Data.Migrations
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                    /*b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");*/
 
                     b.Property<string>("NormalizedEmail")
                         .HasColumnType("nvarchar(256)")
