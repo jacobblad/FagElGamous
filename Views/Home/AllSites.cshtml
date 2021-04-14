@@ -16,39 +16,126 @@
          page-class-selected="btn-primary"
          class="btn-group pull-right m-1">
     </div>*@
+<br />
+<br />
+<br />
+
+<div class="container">
+
+    <div class="gallery">
+
+        <div class="gallery-item">
+            <img class="gallery-image" src="~/images/13 February 2007 026.jpg" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer">
+        </div>
+
+        <div class="gallery-item">
+            <img class="gallery-image" src="~/images/13 February 2007 070.jpg" alt="sunset behind San Francisco city skyline">
+        </div>
+
+        <div class="gallery-item">
+            <img class="gallery-image" src="~/images/13 February 2007 087.jpg" alt="people holding umbrellas on a busy street at night lit by street lights and illuminated signs in Tokyo, Japan">
+        </div>
+
+        <div class="gallery-item">
+            <img class="gallery-image" src="~/images/190-200N 30-40E NE Burial 11 G.jpg" alt="car interior from central back seat position showing driver and blurred view through windscreen of a busy road at night">
+        </div>
+
+        <div class="gallery-item">
+            <img class="gallery-image" src="~/images/190-200N 30-40E NE Burial 18 -- Nail A.jpg" alt="back view of woman wearing a backpack and beanie waiting to cross the road on a busy street at night in New York City, USA">
+        </div>
+
+        <div class="gallery-item">
+            <img class="gallery-image" src="~/images/21. B.5.7 140-160N 50-60E NW Burial 28.jpg" alt="man wearing a black jacket, white shirt, blue jeans, and brown boots, playing a white electric guitar while sitting on an amp">
+        </div>
+
+    </div>
+
+</div>
 
 <form action="/action_page.php">
     <input class="btn" type="file" id="myFile" name="filename">
     <input type="submit" class="btn">
 </form>
 
+<style>
 
-<div class="wrapper row3">
-    <main class="hoc container clear">
-        <!-- main body -->
-        <div class="content">
-            <div id="gallery">
-                <figure>
-                    <header class="heading">Gallery Title Goes Here</header>
-                    <ul class="nospace clear">
-                        <li class="one_quarter first"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-                        <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-                        <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-                        <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-                        <li class="one_quarter first"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-                        <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-                        <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-                        <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-                        <li class="one_quarter first"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-                        <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-                        <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-                        <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-                    </ul>
-                    <figcaption>Gallery Description Goes Here</figcaption>
-                </figure>
-            </div>
-        </div>
-        <!-- / main body -->
-        <div class="clear"></div>
-    </main>
-</div>
+:root {
+	/* Base font size */
+	font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+	background-color: #fafafa;
+}
+
+.container {
+	max-width: 100rem;
+	margin: 0 auto;
+	padding: 0 2rem 2rem;
+}
+
+.heading {
+	font-family: "Montserrat", Arial, sans-serif;
+	font-size: 4rem;
+	font-weight: 500;
+	line-height: 1.5;
+	text-align: center;
+	padding: 3.5rem 0;
+	color: #1a1a1a;
+}
+
+.heading span {
+	display: block;
+}
+
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	/* Compensate for excess margin on outer gallery flex items */
+	margin: -1rem -1rem;
+}
+
+.gallery-item {
+	/* Minimum width of 24rem and grow to fit available space */
+	flex: 1 0 24rem;
+	/* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+	margin: 1rem;
+	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+}
+
+.gallery-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 400ms ease-out;
+}
+
+.gallery-image:hover {
+	transform: scale(1.15);
+}
+
+/*
+
+The following rule will only run if your browser supports CSS grid.
+
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling.
+
+*/
+
+
+	.gallery,
+	.gallery-item {
+		margin: 0;
+	}
+}
+
+</style>
