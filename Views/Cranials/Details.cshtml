@@ -5,160 +5,100 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<table id="applicant-info-table">
+<tr>
+    <th>Burial Number</th>
+    <th>Burial Location</th>
+    <th>Burial Direction</th>
+    <th>Burial Subplot</th>
+    <th>Gender</th>
+    <th>Bone Length</th>
+    <th>More Information</th>
+</tr>
 
-<div>
-    <h4>Cranial</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BurialLocation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BurialLocation)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SampleNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SampleNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaximumCranialLength)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaximumCranialLength)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaximumCranialBreadth)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaximumCranialBreadth)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BasionBregmaHeight)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BasionBregmaHeight)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BasionNasion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BasionNasion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BasionProsthionLength)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BasionProsthionLength)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BizygomaticDiameter)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BizygomaticDiameter)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NasionProsthion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NasionProsthion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaximumNasalBreadth)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaximumNasalBreadth)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.InterorbitalBreadth)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.InterorbitalBreadth)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BurialPositioningNorthSouthNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BurialPositioningNorthSouthNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BurialPositioningNorthSouthDirection)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BurialPositioningNorthSouthDirection)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BurialPositioningEastWestNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BurialPositioningEastWestNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BurialPositioningEastWestDirection)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BurialPositioningEastWestDirection)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BurialNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BurialNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BurialDepth)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BurialDepth)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BurialSubPlotDirection)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BurialSubPlotDirection)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BurialArtifactDescription)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BurialArtifactDescription)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BuriedWithArtifacts)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BuriedWithArtifacts)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GilesGender)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GilesGender)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BodyGender)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BodyGender)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BurialFkNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BurialFkNavigation.BurialId)
-        </dd>
-    </dl>
-</div>
-<div>
-    @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
-    {
-        <a class="btn btn-outline-dark" asp-action="Edit" asp-route-id="@Model.CranialId">Edit</a><a> </a>
+<tr>
+    <td style="color:black;">@Html.DisplayNameFor(model => model.BurialNumber</td>
+    <td>
+        <button type="button" class="collabsible btn">Burial Location</button>
+        <div class="content">
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialLocation)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialPositioningNorthSouthDirection)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialPositioningNorthSouthNumber)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialPositioningEastWestNumber)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialPositioningEastWestDirection)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialFkNavigation)</p>
+        </div>
+    </td>
+
+    <td>
+        <button type="button" class="collabsible btn">Burial Location</button>
+        <div class="content">
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialLocation)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialPositioningNorthSouthDirection)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialPositioningNorthSouthNumber)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialPositioningEastWestNumber)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialPositioningEastWestDirection)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialFkNavigation)</p>
+        </div>
+    </td>
+
+    <td>
+        <button type="button" class="collabsible btn">Bone Length</button>
+        <div class="content">
+            <p style="color:black;">@Html.DisplayNameFor(model => model.MaximumCranialLength)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.MaximumCranialBreadth)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BasionBregmaHeight)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BasionNasion)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BasionProsthionLength)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BizygomaticDiameter)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BasionBregmaHeight)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.MaximumNasalBreadth)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.InterorbitalBreadth)</p>
+        </div>
+    </td>
+    <td>
+        <button type="button" class="collabsible btn">Gender</button>
+        <div class="content">
+            <p style="color:black;">@Html.DisplayNameFor(model => model.GilesGender)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BodyGender)</p>
+        </div>
+    </td>
+    <td>
+        <button type="button" class="collabsible btn">More Information</button>
+        <div class="content">
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialDepth)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialFkNavigation)</p>
+            <p style="color:black;">@Html.DisplayNameFor(model => model.BurialFkNavigation.BurialId)</p>
+        </div>
+    </td>
+    </tr>
+
+        @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
+        {
+            <a class="btn btn-outline-dark" asp-action="Edit" asp-route-id="@Model.CranialId">Edit</a><a> </a>
+        }
+        <a class="btn btn-outline-dark" asp-action="Index">Back to List</a>
+        @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
+        {
+            <br /><a asp-action="Delete" asp-route-id="@Model.CranialId">Delete</a><a> </a>
+        }
+    </div>
+
+    </table>
+
+<script>
+    var coll = document.getElementsByClassName("collabsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
     }
-    <a class="btn btn-outline-dark" asp-action="Index">Back to List</a>
-    @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
-    {
-        <br /><a asp-action="Delete" asp-route-id="@Model.CranialId">Delete</a><a> </a>
-    }
-</div>
+</script>
