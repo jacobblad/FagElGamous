@@ -4,22 +4,25 @@
 {
     <p class="text-black-50">There are no samples associated with this mummy.</p>
 }
-@foreach (var x in Model)
-{
+
     <section class="hoc container clear">
         <ul id="latest" class="nospace group">
-            <li class="one_half" style="width:400px;height:350px;display:block;">
-                <article style="width:450px;height:350px;display:flex;justify-content:center;align-items:center;">
-                    <div class="excerpt" style="width:400px;height:300px;">
-                        <p>Location Sample Taken From: @x.BurialLocation</p>
-                        <p>Sample Notes: @x.Notes</p>
-                        <p>Rack # @x.Rack</p>
-                        <p>Bag # @x.Bag</p>
-                        <p>Previosuly Sampled: @x.SampleId</p>
-                        <p>Researcher's Initials: @x.Initials</p>
-                    </div>
-                </article>
-            </li>
+            @foreach (var item in Model)
+            {
+                <li class="">
+                    <article>
+                        <div class="excerpt">
+                            <h6 style="color:#FBAB45" class="heading">Location Sample Taken From: @Html.DisplayFor(modelItem => item.BurialLocation)</h6>
+                            <p>Sample Notes: @Html.DisplayFor(modelItem => item.Notes)</p>
+                            <p>Rack #: @Html.DisplayFor(modelItem => item.Rack)</p>
+                            <p>Bag #: @Html.DisplayFor(modelItem => item.Bag)</p>
+                            <p>Previously Sampled: @Html.DisplayFor(modelItem => item.SampleId)</p>
+                            <p>Researcher's Initials: @Html.DisplayFor(modelItem => item.Initials)</p>
+                        </div>
+                    </article>
+                </li>
+                <br />
+                <br />
+            }
         </ul>
     </section>
-}
