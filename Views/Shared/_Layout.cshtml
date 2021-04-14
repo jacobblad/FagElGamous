@@ -19,6 +19,7 @@ Licence URI: https://www.os-templates.com/template-terms
     <link href="~/css/animate-custom.css" rel="stylesheet" type="text/css" media="all">
     <link href="~/css/demo.css" rel="stylesheet" type="text/css" media="all">
     <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Brigham_Young_University_medallion.svg/800px-Brigham_Young_University_medallion.svg.png">
 
 </head>
 <body id="top">
@@ -73,7 +74,10 @@ Licence URI: https://www.os-templates.com/template-terms
                         {
                             <li><a asp-area="" asp-controller="Administration" asp-action="ListUsers">Manage Users</a></li>
                         }
-                        <li><a asp-area="" asp-controller="Administration" asp-action="ListUsers">Manage Users</a></li>
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
+                        {
+                            <li><a asp-area="" asp-controller="Burial" asp-action="Create">On Site Data Entry</a></li>
+                        }
 
 
                         <!--<li>
