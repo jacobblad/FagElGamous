@@ -4,26 +4,27 @@
 @{ 
     var roleId = ViewBag.roleId;
 }
-
-<form method="post">
-    <div>
+<center>
+    <form method="post">
         <div>
-            <h2>Add or remove users from this role</h2>
-        </div>
-        <div>
-            @for (int i = 0; i < Model.Count; i++)
-            {
             <div>
-                <input type="hidden" asp-for="@Model[i].UserId" />
-                <input type="hidden" asp-for="@Model[i].Email" />
-                <input asp-for="@Model[i].IsSelected" />
-                <label asp-for="@Model[i].IsSelected">@Model[i].Email</label>
+                <h2>Add or remove users from this role</h2>
+            </div><br />
+            <div >
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <div>
+                        <input type="hidden" asp-for="@Model[i].UserId" />
+                        <input type="hidden" asp-for="@Model[i].Email" />
+                        <label asp-for="@Model[i].IsSelected" style="color:white">@Model[i].Email</label>
+                        <input asp-for="@Model[i].IsSelected" />
+                    </div>
+                }
             </div>
-            }
+            <div><br />
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a asp-action="EditRole" asp-route-id="@roleId" style="width:auto">Cancel</a>
+            </div>
         </div>
-        <div>
-            <input type="submit" value="Update" style="width:auto" />
-            <a asp-action="EditRole" asp-route-id="@roleId" style="width:auto">Cancel</a>
-        </div>
-    </div>
-</form>
+    </form>
+</center>
