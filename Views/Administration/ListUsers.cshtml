@@ -11,10 +11,6 @@
 
 @if (Model.Any())
 {
-    <a class="btn btn-primary" style="width:auto"
-       asp-controller="Account" asp-action="Register">
-        Add new user
-    </a>
     <table id="applicant-info-table">
         <tr>
             <th>User ID:</th>
@@ -22,12 +18,13 @@
             </tr>
             @foreach (var user in Model)
             {
-                <tr>
-                    <td>@user.Id</td>
-                    <td>@user.Email</td>
-                    <td>
-                        <button asp-action="EditUser" asp-controller="Administration" asp-route-id="@user.Id" type="button" class="btn">Edit</button>
-                        <button type="button" class="btn">Delete</button>
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.Email</td>
+            <td>
+                <a asp-action="EditUser" asp-controller="Administration" asp-route-id="@user.Id" type="button" class="btn">Edit</a>
+
+                <button type="button" class="btn">Delete</button>
 
                     </td>
                 </tr>
