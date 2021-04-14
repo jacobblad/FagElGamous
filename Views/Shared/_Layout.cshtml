@@ -12,13 +12,14 @@ Licence URI: https://www.os-templates.com/template-terms
 <html lang="">
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
 <head>
-    <title>Archeology</title>
+    <title>@ViewData["Title"]</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="~/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
     <link href="~/css/animate-custom.css" rel="stylesheet" type="text/css" media="all">
     <link href="~/css/demo.css" rel="stylesheet" type="text/css" media="all">
     <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Brigham_Young_University_medallion.svg/800px-Brigham_Young_University_medallion.svg.png">
 
 </head>
 <body id="top">
@@ -71,8 +72,7 @@ Licence URI: https://www.os-templates.com/template-terms
                         <li><a asp-area="" asp-controller="Home" asp-action="AllSites">View Burial Sites</a></li>
                         @if ((await AuthorizationService.AuthorizeAsync(User, "admin")).Succeeded)
                         {
-                            <li><a asp-area="" asp-controller="Administration" asp-action="ListUsers">Manage Users</a></li>
-                        }
+            <li><a asp-area="" asp-controller="Administration" asp-action="ListUsers">Manage Users</a></li>}
                         @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
                         {
                             <li><a asp-area="" asp-controller="Burials" asp-action="Create">On Site Data Entry</a></li>
@@ -80,12 +80,12 @@ Licence URI: https://www.os-templates.com/template-terms
 
 
                         <!--<li>
-    <a class="drop" asp-area="" asp-controller="Home" asp-action="AccountInfo">Account</a>
-    <ul>-->
+                        <a class="drop" asp-area="" asp-controller="Home" asp-action="AccountInfo">Account</a>
+                        <ul>-->
                         @* <li><a asp-area="" asp-controller="Home" asp-action="AccountInfo">View Account Info</a></li>*@
                         <!-- <li><a asp-area="" asp-controller="Home" asp-action="Admin">Admin Stuff</a></li> -->
                         <!--</ul>
-    </li>-->
+                        </li>-->
 
                     </ul>
                 </nav>
@@ -94,7 +94,7 @@ Licence URI: https://www.os-templates.com/template-terms
 
 
         <div class="container">
-            <main role="main" class="pb-3"">
+            <main role="main" class="pb-3" ">
                 @RenderBody()
             </main>
         </div>
@@ -132,6 +132,6 @@ Licence URI: https://www.os-templates.com/template-terms
     <script src="layout/scripts/jquery.backtotop.js"></script>
     <script src="layout/scripts/jquery.mobilemenu.js"></script>
 
-    
+
 </body>
 </html>
