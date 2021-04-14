@@ -19,8 +19,8 @@
             @foreach (var user in Model)
             {
         <tr>
-            <td>@user.Id</td>
-            <td>@user.Email</td>
+            <td style="color:black;">@user.Id</td>
+            <td style="color:black;">@user.Email</td>
             <td>
                 <a asp-action="EditUser" asp-controller="Administration" asp-route-id="@user.Id" type="button" class="btn">Edit</a>
 
