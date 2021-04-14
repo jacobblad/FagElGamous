@@ -13,3 +13,54 @@
     <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
     <li class="nav-item"><a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
 </ul>
+
+<div class="wrapper row3">
+    <br /><br />
+    <div class="sectiontitle">
+        <center>
+            <form asp-controller="Burials" asp-action="Filter" method="post">
+                <p class="heading font-x1">Select Filter Options</p>
+                <br />
+                <label>Select a Gender</label>
+                <select name="gender" id="gender">
+                    <option value="">@Model.Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Undetermined">Undetermined</option>
+                </select>
+                <br />
+                <label>Select a Head Direction</label>
+                <select name="directionhead" id="directionhead">
+                    <option value="">@Model.DirectionHead</option>
+                    <option value="West">West</option>
+                    <option value="East">East</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+                <br />
+                <label>Select a Hair Color</label>
+                <select name="haircolor" id="haircolor">
+                    <option value="">@Model.HairColor</option>
+                    <option value="B">Brown</option>
+                    <option value="K">Black</option>
+                    <option value="A">Brown-Red</option>
+                    <option value="R">Blonde-Red</option>
+                    <option value="D">Blonde</option>
+                    <option value="U">Unknown</option>
+                </select>
+                <br />
+                <label>Select a Age Range</label>
+                <select name="agerange" id="agerange">
+                    <option value="">@Model.AgeRange</option>
+                    <option value="A">Adult</option>
+                    <option value="C">Child</option>
+                    <option value="I">Infant</option>
+                    <option value="N">NewBorn</option>
+                    <option value="U">Unknown</option>
+                </select>
+                <br />
+                <button class="btn" type="submit">Filter</button>
+            </form>
+            <br />
+            <a class="btn" asp-controller="Burials" asp-action="Index" asp-route-gender="" asp-route-directionhead="" asp-route-haircolor="" asp-route-agerange="">Reset Filters</a>
+        </center>
+    </div>
