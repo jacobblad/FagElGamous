@@ -152,6 +152,13 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.CranialId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
+    {
+        <a class="btn btn-outline-dark" asp-action="Edit" asp-route-id="@Model.CranialId">Edit</a><a> </a>
+    }
+    <a class="btn btn-outline-dark" asp-action="Index">Back to List</a>
+    @if ((await AuthorizationService.AuthorizeAsync(User, "both")).Succeeded)
+    {
+        <br /><a asp-action="Delete" asp-route-id="@Model.CranialId">Delete</a><a> </a>
+    }
 </div>
